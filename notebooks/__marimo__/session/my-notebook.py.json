@@ -1,0 +1,99 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.19.11"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "69cbe355f3f28620d2dd8d9836a9d4a3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "62a07bd49f2f81bb79c7fcaccf0791b4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"welcome-to-marimo\">Welcome to Marimo!</h1>\n<span class=\"paragraph\">This is a sample notebook. In our next cells, we will demonstrate an imported function along with a Marimo slider and control. Note that you can mouse over the imported function and view its docstring.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "13a5af136b47eedbef615602a9b207f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='f77e532d-7a5e-4fae-fc1e-09181d7e5206'><marimo-slider data-initial-value='5' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will update values.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='1' data-stop='100' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "68598d6a7353d6982681897a5338c41a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>array([ True, False, False,  True,  True,  True, False, False, False,\n       False, False,  True, False,  True, False, False, False, False,\n       False,  True, False,  True,  True, False, False,  True, False,\n       False, False, False,  True, False,  True, False,  True,  True,\n        True, False,  True,  True, False])</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "ce567a648517ff1044f90822948a6a56",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='PKri-0' random-id='727537f6-bee4-ed1e-c570-b7637958d359'><marimo-vega data-initial-value='{}' data-label='null' data-spec='{&quot;config&quot;:{&quot;view&quot;:{&quot;continuousWidth&quot;:300,&quot;continuousHeight&quot;:300}},&quot;data&quot;:{&quot;url&quot;:&quot;./@file/1906-1397334-TMvM5RDD.arrow&quot;,&quot;format&quot;:{&quot;type&quot;:&quot;arrow&quot;}},&quot;mark&quot;:{&quot;type&quot;:&quot;arc&quot;,&quot;outerRadius&quot;:91},&quot;encoding&quot;:{&quot;color&quot;:{&quot;field&quot;:&quot;outcome&quot;,&quot;scale&quot;:{&quot;domain&quot;:[&quot;Heads&quot;,&quot;Tails&quot;],&quot;range&quot;:[&quot;#4CAF50&quot;,&quot;#FF5722&quot;]},&quot;type&quot;:&quot;nominal&quot;},&quot;theta&quot;:{&quot;field&quot;:&quot;count&quot;,&quot;type&quot;:&quot;quantitative&quot;},&quot;tooltip&quot;:[{&quot;field&quot;:&quot;outcome&quot;,&quot;type&quot;:&quot;nominal&quot;},{&quot;field&quot;:&quot;count&quot;,&quot;type&quot;:&quot;quantitative&quot;}]},&quot;title&quot;:&quot;41 coin flips&quot;,&quot;width&quot;:&quot;container&quot;,&quot;&#36;schema&quot;:&quot;https://vega.github.io/schema/vega-lite/v6.1.0.json&quot;}' data-chart-selection='true' data-field-selection='true' data-embed-options='{}'></marimo-vega></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VAXd",
+      "code_hash": "5f25afc9b4a5608b193fcb2e708e57ce",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"some-cool-things-about-marimo\">Some cool things about Marimo</h3>\n<ul>\n<li><strong>Reactivity</strong>: Cells automatically re-run when their dependencies change \u2014 no need to manually re-execute downstream cells. Try moving the slider above and watch the chart update instantly.</li>\n<li><strong>No hidden state</strong>: Unlike Jupyter, you can't have stale variables. Delete a cell and its variables are gone. Try deleting the results cell and watch the chart cell show an error.</li>\n<li><strong>Pure Python files</strong>: Notebooks are stored as <code>.py</code> files, not JSON \u2014 making diffs, code review, and version control painless. Open this file in your editor to see for yourself.</li>\n<li><strong>Run as an app</strong>: Run <code>marimo run notebooks/my-notebook.py</code> in your terminal to view this notebook as a read-only interactive app with the code hidden.</li>\n<li><strong>Run as a script</strong>: Run <code>python notebooks/my-notebook.py</code> to execute the notebook top-to-bottom as a plain Python script.</li>\n<li><strong>Built-in UI elements</strong>: Sliders, dropdowns, tables, file uploads, and more \u2014 all reactive out of the box. Try <code>mo.ui</code> tab-completion in a cell to see what's available.</li>\n<li><strong>Deterministic execution</strong>: Marimo understands the dependency graph between cells, so execution order is always consistent regardless of cell position. Try rearranging cells by dragging them.</li>\n</ul></span>"
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
