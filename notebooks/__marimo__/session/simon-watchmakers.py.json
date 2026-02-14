@@ -1,0 +1,86 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.19.11"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "6e2a0c16254ec479a9783ce170013110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "a2335157db92d9ddb2aa9419f052af1b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"simons-watchmakers\">Simon's Watchmakers</h1>\n<span class=\"paragraph\">Herbert Simon's <em>The Architecture of Complexity</em> (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers---Hora and Tempus---along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.</span>\n<span class=\"paragraph\">Simon's parable begins:</span>\n<blockquote>\n<span class=\"paragraph\">There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently... However, Hora prospered, while Tempus lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1000 parts each. Tempus had so constructed his so that if he had one partly assmbled and had to put it down---to answer the phone say---it immediately fell to pieces...</span>\n<span class=\"paragraph\">Hora had designed them so that he could put together subassemblies of ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and as system of ten of the latter constituted the whole watch. Hence, when Hora had to... answer the phone, he lost only a sall part of his work, and he assembled his watches in only a fraction of the hours it took Tempus.</span>\n</blockquote></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "gGNV",
+      "code_hash": "f89d1d1bd017c85c0ed4c70338e641f2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><blockquote>\n<span class=\"paragraph\">Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <em>p</em>. Then the probability that <strong>Tempus</strong> can complete a watch he has started without interruption is (1-p)^1000---a very small number unless p is .001 or less.</span>\n<span class=\"paragraph\">On the other hand, <strong>Hora</strong> has to complete 111 subassemblies... the probability that he will not be interrupted while completing any one of these is (1-p)^10... if p is about .01... then a straightforward calculation shows that it will take Tempus on the average, about 4000 times as long to assemble a watch as Hora.</span>\n</blockquote></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "dc63622e8d5d053ad803021e95f71644",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='295626d1-84de-2f89-fadc-a89f380e07ed'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will update probability p.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "24cc6696c4aead0049b2474b56de0648",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>0.01</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UAGx",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    }
+  ]
+}
