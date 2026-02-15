@@ -53,7 +53,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    In order to elucidate Simon's parable, the following code cells provide an implementation in Python. The core classes `Tempus` and `Hora` are designed to be as faithful to the prose as possible, with particular care toward making sure the core number of subassemblies, 111, is precisely reached by Hora.
+    In order to elucidate Simon's parable, the following code presents an implementation in Python. The core classes `Tempus` and `Hora` are designed to be as faithful to the prose as possible, with particular care toward making sure the core number of subassemblies, 111, is precisely reached by Hora.
 
     Using these classes, we proceed with both a visualization and a simulation.
     """)
@@ -280,7 +280,7 @@ def _(mo):
     mo.md(r"""
     ## Visualization
 
-    Here we have a sort of *post facto* visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to "scrub through" those data.
+    Here we have a *post facto* visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to "scrub through" those data. Notice that Tempus takes so long to create one watch that in some randomized data generations, he fails to complete a single one.
     """)
     return
 
@@ -327,7 +327,7 @@ def _(Hora, Tempus, mo, np, probability):
 def _(MAX_FRAMES, mo):
     frame_slider = mo.ui.slider(
             start=0, stop=MAX_FRAMES - 1, step=1, value=1 - 1,
-            label="Use this control to scrub through visualization data.",
+            label="Use this control to scrub through visualization data (Note that the notebook cells must first be run).",
             full_width=True,
         )
     frame_slider
@@ -519,6 +519,37 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
 def _(mo):
     mo.md(r"""
     ## Simulation
+
+    As illuminating and artful as Simon's parable of the watchmakers may be, the discourse ends with some calculations that have proven, over time, to be less than precise. This imprecision does nothing to alter the significance of the core message of the story—that modular designs in complex systems will tend to be selected over linear ones is not only generally accepted but now backed by many other lines of analysis and troves of data. In fact, *Architecture* has been and continues to be enormously widely-cited, with Google Scholar reporting more than 10,000 citations.
+
+    However, that success means that the same headline numbers have been repeatedly mis-reported over the years.
+
+    In his analysis, Simon seeks to answer the question: through his modular architecture, how many more watches can Hora complete than Tempus, given a specific probability (arbitrarily, $0.01$) of interruption. The entire prose including the calculations are below. Simon arrives at a specific formula concluding in an approximate value of 4,000. While the number is indeed presented as an approximation, we might observe that in the final line of his analysis:
+
+    $$
+    1/111\times 100/5 \times .99^{10}/.99^{1000} = 1/111 \times 20 \times 20,000 \sim 4,000
+    $$
+
+    it could be the equals sign that has led so many people over the years to take the number as a published certainty. It is instead off by a factor of two.
+
+    ### Helpful Analyses
+
+    With so many citations of the text, a complete investigation into the history of mathematical adjustments to the watchmakers math would be far beyond the scope of this work. Here, we can cite to a few examples.
+
+    An early standout that arrives very near the precise analysis is presented in Turney (1989) in *Synthese*. He derives the ratio components that we arrive at in our simulation: 1,173.603 steps per watch for Hora and 2,316,256.508 steps for Tempus, making for the ~2000x ratio. Turney also explicitly labels Simon's error: "He appears to make the mistake of calculating $Et(p,k)$ as $Ea(p,k) · Etfa(p,k)$." As conclusive as these findings are, however, they are arrived at by means of fairly esoteric network mathematics: the beginning of the passage is separated from the final calculation by full-page diagrams. It seems possible that this quirk has prevented the absorption of the correct analysis by more of the academic world.
+
+    A more direct and didactically helpful analysis appears in a classroom note by J. H. Saltzer (1996). We use this analysis to guide the simulation testing below. It is difficult to trace the precise origin of the analysis since, being class notes rather than a published paper, the work cites private conversations Saltzer appears to have had with MIT colleagues around the time. Still, the passage is extremely clear, converting the probability $p$ to a number of tries $T = (1/.99)$, and concluding that:
+
+    $$
+    S_k = T \cdot \frac{T^k - 1}{T - 1}
+    $$
+
+    And then,
+    > "Using k = 1000 for Tempus and k = 10 for Hora (and multiplying Hora's result by 111 subassemblies) we get
+         Tempus:               2316257 steps
+         Hora:  10.577 * 111 =    1174 steps"
+
+    The simulation below validates this approach.
     """)
     return
 
@@ -529,15 +560,15 @@ def _(mo, np):
     simulated_watches = mo.ui.slider(steps=slider_steps, value=1000, label="Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.")
     sw_form = simulated_watches.form()
     sw_form
-    return simulated_watches, sw_form
+    return (sw_form,)
 
 
 @app.cell(hide_code=True)
-def _(simulated_watches, sw_form):
+def _(sw_form):
     s_w = 10000
     if sw_form.value is not None:
         s_w = sw_form.value
-    print(f"Number of watches to be simulated: {simulated_watches.value}")
+    print(f"Number of watches to be simulated: {s_w}")
     return (s_w,)
 
 
@@ -560,6 +591,7 @@ def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
         print(f"  Hora:   111 * S({K}) = {hora_expected:.1f} steps/watch")
         print(f"  Tempus: S({TEMPUS_PARTS_PER_WATCH}) = {tempus_expected:.1f} steps/watch")
         print(f"  Ratio:  {tempus_expected / hora_expected:.1f}x")
+        print()
 
         # — Hora —
         # Here we give Hora (and perhaps his daughter) 10000 watches to make for us.
@@ -578,7 +610,7 @@ def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
         print(f"  Avg assemblies/watch: {avg_assemb:.1f}  (expected: 111)")
 
         ratio_h = avg_hora / hora_expected
-        print(f"  {'✓' if abs(ratio_h - 1.0) < 0.02 else 'x'} Sim/Analytical = {ratio_h:.4f}")
+        print(f"  {'Successful ' if abs(ratio_h - 1.0) < 0.02 else 'Failed '} Sim/Analytical = {ratio_h:.4f}")
         print()
 
         # — Tempus —
@@ -618,7 +650,80 @@ def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that in fact there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when $p = .01$.
+
+    Yet, despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone.
+
+    But the quantitative correction may be the lesser finding. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Watchmakers and Entropy
+
+    Implementing Hora as a Python class turns out to make one particular issue very clear: when Hora is assembling his parts he is vulnerable, just as is Tempus, to an interruption: yet, when he is converting his subassemblies into larger components---say, by gluing them---he is notably immune. This is such unusual arrangement in causal nature that modeling around it takes extra code to make it work.
+
+    Can we measure what is happening when Hora "banks" a "glued" module for free? In fact, Simon himself recognizes both the problem and its signature in the paper: entropy. He addresses it in a section applying modularity to biological systems.
+
+    > "[T]he evolution of complex systems from simple elements implies nothing, one way or the other, about the change in entropy of the entire system... The net inflow of free energy has to be supplied from the sun or some other source if the second law of thermodynamics is not to be violated.... All estimates indicate that the amount of entropy, measured in physical units, involved in the formation of a one-celled biological organism is trivially small---about $10^{-11}$ cal/degree."
+
+    In a footnote, Simon converts this thermodynamic measure to an informational one: $10^{13}$ bits.
+
+    ### Applying Shannon entropy to the watchmakers
+
+    The footnote hints at Shannon entropy, rather than thermodynamic entropy, and this is our next interest. The difference in the Tempus and Hora systems does not appear step-by-step, as both watchmakers are identical at handling elements. Hora's advantage is at the step committing $k$ elements to a component assembly, and the advantage can be quantified using Shannon's equations.
+
+    The general Shannon entropy formula gives us the information content (in bits) associated with a single event of probability $P$:
+
+    $$
+    I = −\log⁡_2P
+    $$
+
+    If we re-organize Saltzer's initial approach to the problem, we can derive a "Shannon-friendly" equation of:
+
+    $$
+    (1−p)^k=T^{−k}
+    $$
+
+    where $T$ is the "expected number of tries." As might be anticipated with such an expression, we can connect immediately into the Shannon by substitution: $P_k = (1−p)^k = T^−k$. And so:
+
+    $$
+    −log2​(1−p)k=k\log2​T
+    $$
+
+    which can further simplify to:
+
+    $$
+    I = k\log_2T
+    $$
+
+    Each successful step reduces the *uncertainty* about whether a given watch will be finished. Applying Saltzer's formula to Shannon, this uncertainty is derived as a measure in bits. The uncertainty remaining at step *k* given an *n* step assembly is:
+
+    $$
+    H(k)=−(n−k)\log⁡_2(1−p)
+    $$
+
+
+    ### Viewing in simulation
+
+    These steps can be reviewed and verified through our modeling efforts.
+
+    Checking the box below will adjust both the visualization and the simulation in this notebook to also compute Shannon entropy.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Discussion
+
+    [MORE TO DO]
+
+    Simon may be sufficiently unimpeachable in his conversion of the parable to biology, but there is an insufficiency nonetheless: his ten thousand citations are from nearly every avenue of science, including many that that investigate human social systems far more closely attuned to cottage industries than a multicellular sponge in a tide pool could be.
     """)
     return
 
