@@ -56,7 +56,7 @@ def _(probability_p_times_10000):
     return (probability,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     HORA_PARTS_PER_SUB = 10           # Number of parts for each Hora component
     K = HORA_PARTS_PER_SUB            # Shorter version of that, matches Saltzer 1999
@@ -72,24 +72,21 @@ def _():
         def __init__(self):
             # Progress within current assembly at each level (0..K-1)
             self.parts = 0          # level 0: elements
-            self.sub_assembs = 0     # level 1: joining subassemblies
+            self.subassemblies = 0     # level 1: joining subassemblies
             self.larger_subs = 0    # level 2: joining "larger" subassemblies
 
             # Inventory: completed pieces ready for the next level
-            self.sub_assembs_ready = 0       # completed subassemblies for current larger subassembly (0..10)
+            self.subassemblies_ready = 0       # completed subassemblies for current larger subassembly (0..10)
             self.larger_subs_ready = 0       # completed larger subassemblies for current watch (0..10)
 
             self.currently_working_on = 0
                 # 0 -->  "elements"
                 # 1 -->  "subassemblies of ten elements each"
-                # 2 -->  "Ten of these subassemblies could be put together
-                #         into larger subassembly"
-                # completing level 2 --> not a real state!
-                #         "a system of ten of the latter constituted
-                #          the whole watch"
-                #          NOTE: This is *not* completely faithful to the story; as
-                #          we can see here we are somewhat ignoring some steps from the prose.
-                #          See discussion from betlow.
+                # 2 -->  "Ten of these subassemblies could be put together into larger subassembly"
+                # 3 -->  *Not a state! Not used.
+                #        "[A] system of ten of the latter constituted the whole watch"
+                #        NOTE: As we can see the prose depends on the "assembly of assemblies" being entirely free.
+                #        See discussion, below.
 
             # Counters
             self.watches = 0
@@ -97,14 +94,14 @@ def _():
             self.work_lost = 0                      # parts-equivalent
             self.total_steps = 0
             self.all_assemblies_completed = 0       # assemblies at any level, about which Simon says: 
-                                                    # "Hora has to complete one hundred eleven sub-assemblies of ten parts each"
+                                                    # "Hora has to complete one hundred eleven subassemblies of ten parts each"
 
         def _get_progress(self):
             """Return current progress at the active level."""
             if self.currently_working_on == 0:
                 return self.parts
             elif self.currently_working_on == 1:
-                return self.sub_assembs
+                return self.subassemblies
             else:
                 return self.larger_subs
 
@@ -113,7 +110,7 @@ def _():
             if self.currently_working_on == 0:
                 self.parts = value
             elif self.currently_working_on == 1:
-                self.sub_assembs = value
+                self.subassemblies = value
             else:
                 self.larger_subs = value
 
@@ -140,15 +137,15 @@ def _():
                     self.all_assemblies_completed += 1   # no matter the level, track an assembly to all_assemblies
 
                     if level == 0:
-                        # Sub-assembly complete
-                        self.sub_assembs_ready += 1
-                        if self.sub_assembs_ready >= K:
-                            # 10 sub-assmblies ready, switch to joining them
+                        # subassembly complete
+                        self.subassemblies_ready += 1
+                        if self.subassemblies_ready >= K:
+                            # 10 subassemblies ready, switch to joining them
                             self.currently_working_on = 1
 
                     elif level == 1:
                         # Larger assembly complete, consume subassemb
-                        self.sub_assembs_ready = 0
+                        self.subassemblies_ready = 0
                         self.larger_subs_ready += 1
                         if self.larger_subs_ready >= K:
                             # 10 larger subs ready, switch to joining them
@@ -169,8 +166,8 @@ def _():
             # return current state as a dict
             return {
                 'parts': self.parts,
-                'sub_assembs': self.sub_assembs,
-                'sub_assembs_ready': self.sub_assembs_ready,
+                'subassemblies': self.subassemblies,
+                'subassemblies_ready': self.subassemblies_ready,
                 'larger_subs': self.larger_subs,
                 'larger_subs_ready': self.larger_subs_ready,
                 'currently_working_on': self.currently_working_on,
@@ -228,12 +225,17 @@ def _():
 
 
 @app.cell
-def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability):
-    # Simulation
+def _():
+    # Visualization
 
     MAX_FRAME = 22222                 # Arbitrary maximum time for simulation
     BASE_TICKS_PER_FRAME = 5          # This is an inverted dt, can be adjusted for probability
+    return
 
+
+@app.cell
+def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability):
+    # Simulation
     def run_watchmakers(probability):
         p = probability
 
@@ -302,7 +304,38 @@ def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability):
         print(f"  Expected ratio: {tempus_expected / hora_expected:.0f}x")
 
     run_watchmakers(probability)
+    return
 
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    For reference, here is the prose of Simon (p. 470) in entirety:
+
+    ### THE EVOLUTION OF COMPLEX SYSTEMS
+
+    Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently—new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?
+
+    The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone—say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.
+
+    The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+
+    It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is $p$. Then the probability that Tempus can complete a watch he has started without interruption is $(1-p)^{1000}$—a very small number unless $p$ is .001 or less. Each interruption will cost, on the average, the time to assemble $1/p$ parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is $(1-p)^{10}$, and each interruption will cost only about the time required to assemble five parts.[^7]
+
+    Now if $p$ is about .01—that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly—then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.
+
+    We arrive at the estimate as follows:
+    1. Hora must make 111 times as many complete assemblies per watch as Tempus;
+    2. but, Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5];
+    3. Tempus will complete an assembly only 44 times per million attempts $((.99)^{1000}=44 \times 10^{-6})$, while Hora will complete nine out of ten $((.99)^{10}=9\times 10^{-1})$. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: $(9\times 10^{-1})/(44 \times 10^{-6})=2\times 10^{4}$.
+
+    Multiplying these three ratios, we get:
+    $$
+    1/111\times 100/5 \times .99^{10}/.99^{1000} = 1/111 \times 20 \times 20,000 \sim 4,000
+    $$
+
+    [Footnote 7, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that "each interruption will cost only about the time to assemble five parts" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]
+    """)
     return
 
 
