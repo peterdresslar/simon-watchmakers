@@ -59,7 +59,7 @@ def _(probability_p_times_10000):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Visualization
+    ## Core Classes
     """)
     return
 
@@ -78,6 +78,7 @@ def _():
         """
 
         def __init__(self):
+            self.name = "Hora"
             # Progress within current assembly at each level (0..K-1)
             self.parts = 0          # level 0: elements
             self.subassemblies = 0     # level 1: joining subassemblies
@@ -191,15 +192,15 @@ def _():
 
         State tracks Tempus' progress, which is likely to be frustrated.
         """
-
         def __init__(self):
+            self.name = "Tempus"
             self.parts = 0          # 0..TEMPUS_PARTS_PER_WATCH
 
             # Counters
             self.watches = 0
             self.interrupts = 0
             self.work_lost = 0      # parts lost to interruptions
-            self.total_steps = 0
+            self.total_steps = 0        
 
         def step(self, rng, p):
             self.total_steps += 1
@@ -232,20 +233,252 @@ def _():
     return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus
 
 
-app._unparsable_cell(
-    r"""
+@app.cell(hide_code=True)
+def _(Hora, Tempus):
+    t = Tempus()
+    h = Hora()
+    print(f"Hello, I am {t.name}, a linear watchmaker.")
+    print(f"Hello, I am {h.name}, a modular watchmaker.")
+
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Visualization
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(Hora, Tempus, mo, np, probability):
     # Visualization
 
-    MAX_FRAME = 22222                 # Arbitrary maximum time for simulation
-    BASE_TICKS_PER_FRAME = 5          # This is an inverted dt, can be adjusted for probability
+    def setup():
+        MAX_FRAMES = 1000000
+        BASE_TICKS_PER_FRAME = 5
+    
+        p_viz = probability
+        rng_h = np.random.default_rng()
+        rng_t = np.random.default_rng()
+    
+        hora_viz = Hora()
+        tempus_viz = Tempus()
+    
+        snapshots = []
+    
+        for frame in range(MAX_FRAMES):
+            for _ in range(BASE_TICKS_PER_FRAME):
+                hora_viz.step(rng_h, p_viz)
+                tempus_viz.step(rng_t, p_viz)
+    
+            snapshots.append({
+                'frame': frame,
+                'step': (frame + 1) * BASE_TICKS_PER_FRAME,
+                **{f'h_{k}': v for k, v in hora_viz.snapshot().items()},
+                **{f't_{k}': v for k, v in tempus_viz.snapshot().items()},
+            })
+    
+        mo.md(f"Simulation complete: {MAX_FRAMES} frames × {BASE_TICKS_PER_FRAME} ticks = **{MAX_FRAMES * BASE_TICKS_PER_FRAME:,}** total steps at p={p_viz}")
+        return snapshots, MAX_FRAMES
 
-    def visualize_watchmakers
+    snapshots, MAX_FRAMES = setup()
+    if len(snapshots) > 0:
+        print("Visualization data ready.")
+    return MAX_FRAMES, snapshots
 
-    hora = Hora()
-    tempus = Tempus()
-    """,
-    name="_"
-)
+
+@app.cell(hide_code=True)
+def _(MAX_FRAMES, mo):
+    frame_slider = mo.ui.slider(
+            start=0, stop=MAX_FRAMES - 1, step=1, value=1 - 1,
+            label="Scrub through simulation",
+            full_width=True,
+        )
+    frame_slider
+    return (frame_slider,)
+
+
+@app.cell(hide_code=True)
+def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
+    f = snapshots[frame_slider.value]
+    step = f['step']
+    p_disp = probability
+
+    # --- Colors ---
+    HORA_BLUE = "#4c78a8"
+    HORA_ACTIVE = "#6fa8dc"
+    HORA_DONE = "#2d5a8a"
+    TEMPUS_RED = "#e45756"
+    BAR_BG = "#3a3a3e"
+    LABEL = "#999"
+
+    def bar(frac, color, w, h=22, active=False):
+        pct = max(0, min(100, frac * 100))
+        brd = f"2px solid {color}" if active else "1px solid #555"
+        return (
+            f'<div style="display:inline-block;width:{w}px;height:{h}px;'
+            f'background:{BAR_BG};border-radius:3px;border:{brd};'
+            f'overflow:hidden;margin:1px;vertical-align:middle;">'
+            f'<div style="width:{pct}%;height:100%;background:{color};'
+            f'border-radius:2px;"></div></div>'
+        )
+
+    def segments(filled, total, color_on, w, h=22, active_idx=-1):
+        seg_w = max(4, (w - total * 2) // total)
+        out = ''
+        for i in range(total):
+            c = color_on if i < filled else BAR_BG
+            brd = f"2px solid {HORA_ACTIVE}" if i == active_idx else "1px solid #555"
+            out += (
+                f'<div style="display:inline-block;width:{seg_w}px;height:{h}px;'
+                f'background:{c};border-radius:2px;border:{brd};margin:1px;"></div>'
+            )
+        return out
+
+    def watches_display(count, color):
+        if count == 0:
+            return '<span style="color:#555;font-size:24px;">—</span>'
+        if count <= 30:
+            return f'<span style="font-size:20px;">{"⌚" * count}</span>'
+        return f'<span style="font-size:20px;">⌚ × {count}</span>'
+
+    # --- Extract Hora state ---
+    h_parts = f['h_parts']
+    h_subassemblies = f['h_subassemblies']
+    h_subassemblies_ready = f['h_subassemblies_ready']
+    h_larger_subs = f['h_larger_subs']
+    h_larger_subs_ready = f['h_larger_subs_ready']
+    h_working = f['h_currently_working_on']
+    h_watches = f['h_watches']
+    h_interrupts = f['h_interrupts']
+    h_work_lost = f['h_work_lost']
+    h_assemb = f['h_all_assemblies_completed']
+
+    # --- Extract Tempus state ---
+    t_parts = f['t_parts']
+    t_watches = f['t_watches']
+    t_interrupts = f['t_interrupts']
+    t_work_lost = f['t_work_lost']
+
+    # --- Bar widths ---
+    W = 600  # total bar area width
+    parts_bar_w = max(60, W // 5)
+    seg_bar_w = W - parts_bar_w - 140  # room for label + parts bar
+
+    # Hora level 0: segments = completed sub-assemblies ready, plus active parts bar
+    # But we need to show WHERE in the hierarchy Hora is.
+    # Row 1: sub-assembly inventory (sub_assembs_ready segments) + current parts bar
+    # Row 2: larger-sub inventory (larger_subs_ready segments) + current sub-assembly joining bar (if working_on==1)
+    # Row 3: assembly joining bar (if working_on==2)
+
+    # Active bar depends on currently_working_on
+    parts_active = (h_working == 0)
+    sub_active = (h_working == 1)
+    larger_active = (h_working == 2)
+
+    html = f"""
+    <div style="font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;">
+
+        <div style="font-size:11px;color:{LABEL};margin-bottom:12px;">
+            Step <b>{step:,}</b> &nbsp;|&nbsp; p = {p_disp}
+            &nbsp;|&nbsp; Frame {frame_slider.value + 1:,} / {len(snapshots):,}
+        </div>
+
+        <!-- HORA -->
+        <div style="margin-bottom:24px;">
+            <div style="font-size:15px;font-weight:bold;color:{HORA_BLUE};margin-bottom:8px;">
+                HORA
+                <span style="font-weight:normal;font-size:11px;color:{LABEL};">
+                    10 × 10 × 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch
+                </span>
+            </div>
+
+            <!-- Row 1: subassemblies_ready + current parts progress -->
+            <div style="margin-bottom:5px;display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Subassemblies:</span>
+                {segments(
+                    h_subassemblies_ready, K, HORA_DONE, seg_bar_w, h=24,
+                    active_idx=h_subassemblies_ready if parts_active and h_subassemblies_ready < K else -1
+                )}
+                <span style="margin:0 4px;font-size:10px;color:{LABEL};">←</span>
+                {bar(h_parts / K, HORA_ACTIVE if parts_active else '#555', parts_bar_w, h=24, active=parts_active)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;min-width:35px;">
+                    {h_parts}/{K}</span>
+            </div>
+
+            <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->
+            <div style="margin-bottom:5px;display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Larger subs:</span>
+                {segments(
+                    h_larger_subs_ready, K, HORA_DONE, seg_bar_w, h=24,
+                    active_idx=h_larger_subs_ready if sub_active and h_larger_subs_ready < K else -1
+                )}
+                <span style="margin:0 4px;font-size:10px;color:{LABEL};">←</span>
+                {bar(h_subassemblies / K, HORA_ACTIVE if sub_active else '#555', parts_bar_w, h=24, active=sub_active)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;min-width:35px;">
+                    {h_subassemblies}/{K}</span>
+            </div>
+
+            <!-- Row 3: assembly (watch) progress -->
+            <div style="margin-bottom:5px;display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Watch assembly:</span>
+                {bar(h_larger_subs / K, HORA_ACTIVE if larger_active else '#555', seg_bar_w + parts_bar_w + 20, h=24, active=larger_active)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;min-width:35px;">
+                    {h_larger_subs}/{K}</span>
+            </div>
+        </div>
+
+        <!-- TEMPUS -->
+        <div style="margin-bottom:24px;">
+            <div style="font-size:15px;font-weight:bold;color:{TEMPUS_RED};margin-bottom:8px;">
+                TEMPUS
+                <span style="font-weight:normal;font-size:11px;color:{LABEL};">
+                    1000 parts, one long chain
+                </span>
+            </div>
+
+            <div style="display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Progress:</span>
+                {bar(t_parts / TEMPUS_PARTS_PER_WATCH, TEMPUS_RED, seg_bar_w + parts_bar_w + 20, h=24, active=True)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;min-width:55px;">
+                    {t_parts}/{TEMPUS_PARTS_PER_WATCH}</span>
+            </div>
+        </div>
+
+        <!-- WATCH OUTPUT -->
+        <div style="display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;">
+            <div>
+                <div style="font-size:12px;color:{HORA_BLUE};margin-bottom:4px;font-weight:bold;">
+                    Hora's watches</div>
+                {watches_display(h_watches, HORA_BLUE)}
+            </div>
+            <div>
+                <div style="font-size:12px;color:{TEMPUS_RED};margin-bottom:4px;font-weight:bold;">
+                    Tempus's watches</div>
+                {watches_display(t_watches, TEMPUS_RED)}
+            </div>
+        </div>
+
+        <!-- STATUS -->
+        <div style="margin-top:12px;font-size:10px;color:{LABEL};border-top:1px solid #333;padding-top:6px;">
+            Hora: {h_interrupts:,} interrupts, ~{h_work_lost:,} parts-equiv lost,
+            {h_assemb:,} assemblies completed,
+            working on level {h_working}
+            &nbsp;|&nbsp;
+            Tempus: {t_interrupts:,} interrupts, {t_work_lost:,} parts lost
+        </div>
+
+    </div>
+    """
+
+    mo.Html(html)
+    return
 
 
 @app.cell(hide_code=True)

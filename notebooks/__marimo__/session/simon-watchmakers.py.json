@@ -71,7 +71,53 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Probability p of an interruption: 0.01\n",
+          "text": "Probability p of an interruption: 0.1\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "uBwI",
+      "code_hash": "3271e9bf775342766cb8c2edc75c011f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"core-classes\">Core Classes</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "2ebdb865e7d922dcd7f5b931736cbf38",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HqFq",
+      "code_hash": "ea58fd7808c2c69ed2f4c31db4781ff3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, I am Tempus, a linear watchmaker.\nHello, I am Hora, a modular watchmaker.\n",
           "mimetype": "text/plain"
         }
       ]
@@ -90,8 +136,8 @@
       "console": []
     },
     {
-      "id": "PKri",
-      "code_hash": "f7fa82083b7cbc4ba124d955f8100736",
+      "id": "sqWO",
+      "code_hash": "f4250fb937d4058be1f1ab9d815fdd10",
       "outputs": [
         {
           "type": "data",
@@ -100,17 +146,37 @@
           }
         }
       ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Visualization data ready.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lTwT",
+      "code_hash": "8978995261c154eba4d14ab0415004c1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='lTwT-0' random-id='282748c6-9e8e-baee-b79d-83d722c44454'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Scrub through simulation&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='999999' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
       "console": []
     },
     {
-      "id": "sqWO",
-      "code_hash": "0bd1a08349c894c4e520603520c9892c",
+      "id": "HPvu",
+      "code_hash": "f1785ad0c80624368251ca10e2a2c9ca",
       "outputs": [
         {
-          "type": "error",
-          "ename": "syntax",
-          "evalue": "line 6\n    def visualize_watchmakers\n                             ^\nSyntaxError: expected '('\n",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/html": "\n<div style=\"font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;\">\n\n    <div style=\"font-size:11px;color:#999;margin-bottom:12px;\">\n        Step <b>132,110</b> &nbsp;|&nbsp; p = 0.1\n        &nbsp;|&nbsp; Frame 26,422 / 1,000,000\n    </div>\n\n    <!-- HORA -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#4c78a8;margin-bottom:8px;\">\n            HORA\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                10 \u00d7 10 \u00d7 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch\n            </span>\n        </div>\n\n        <!-- Row 1: subassemblies_ready + current parts progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Subassemblies:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:2px solid #6fa8dc;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #6fa8dc;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:20.0%;height:100%;background:#6fa8dc;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                2/10</span>\n        </div>\n\n        <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Larger subs:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 3: assembly (watch) progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Watch assembly:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n    </div>\n\n    <!-- TEMPUS -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#e45756;margin-bottom:8px;\">\n            TEMPUS\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                1000 parts, one long chain\n            </span>\n        </div>\n\n        <div style=\"display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Progress:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #e45756;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0.4%;height:100%;background:#e45756;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:55px;\">\n                4/1000</span>\n        </div>\n    </div>\n\n    <!-- WATCH OUTPUT -->\n    <div style=\"display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;\">\n        <div>\n            <div style=\"font-size:12px;color:#4c78a8;margin-bottom:4px;font-weight:bold;\">\n                Hora's watches</div>\n            <span style=\"font-size:20px;\">\u231a \u00d7 63</span>\n        </div>\n        <div>\n            <div style=\"font-size:12px;color:#e45756;margin-bottom:4px;font-weight:bold;\">\n                Tempus's watches</div>\n            <span style=\"color:#555;font-size:24px;\">\u2014</span>\n        </div>\n    </div>\n\n    <!-- STATUS -->\n    <div style=\"margin-top:12px;font-size:10px;color:#999;border-top:1px solid #333;padding-top:6px;\">\n        Hora: 13,259 interrupts, ~135,602 parts-equiv lost,\n        7,070 assemblies completed,\n        working on level 0\n        &nbsp;|&nbsp;\n        Tempus: 13,430 interrupts, 118,676 parts lost\n    </div>\n\n</div>\n"
+          }
         }
       ],
       "console": []
@@ -156,7 +222,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Number of simulated watches: 100000\nSimulation will re-run on change.\n",
+          "text": "Number of simulated watches: 10000\nSimulation will re-run on change.\n",
           "mimetype": "text/plain"
         }
       ]
@@ -176,7 +242,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\nFrom Saltzer: we conclude that Hora can produce 1973 times as many watches per unit time as can Tempus.\n",
+          "text": "Analytical predictions (p=0.1):\n  Hora:   111 * S(10) = 2073.4 steps/watch\n  Tempus: S(1000) = 57212451947732008221398653860231285716404928512.0 steps/watch\n  Ratio:  27592892054337231888858769650911656609316864.0x\nFrom Saltzer: we conclude that Hora can produce 1973 times as many watches per unit time as can Tempus.\nHora: 10000 watches in 20,764,434 steps\n  Avg steps/watch:      2076.4  (expected: 2073.4)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  \u2713 Sim/Analytical = 1.0014\n\nTempus: 0 watches in 20,764,434 steps\n  (zero watches \u2014 expected ~0.0 watches)\n  Interrupts: 2,078,169\n  Work lost:  18,686,258 parts\n  Best progress: (not tracked, but expected ~10 parts before reset)\n\nIn 20,764,434 steps:\n  Hora:   10000 watches\n  Tempus: 0 watches\n  Ratio:  \u221e  (Tempus completed zero watches)\n  Expected ratio: 27592892054337231888858769650911656609316864x\n",
           "mimetype": "text/plain"
         }
       ]
