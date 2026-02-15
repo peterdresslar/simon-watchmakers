@@ -1,6 +1,8 @@
 # Simon Watchmakers
 
-A [marimo](https://marimo.io) notebook project investigating the story of Tempus and Hora from Simon's *The Architecture of Complexity*, 1962.
+A [marimo](https://marimo.io) notebook project investigating the story of Tempus and Hora from Simon's *The Architecture of Complexity*, 1962. 
+
+[![Open in molab](https://marimo.io/molab-shield.svg)](https://molab.marimo.io/github/peterdresslar/simon-watchmakers/blob/main/notebooks/simon-watchmakers.py)
 
 ## Prerequisites
 
