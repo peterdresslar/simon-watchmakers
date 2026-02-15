@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.19.11"
-app = marimo.App(width="medium")
+app = marimo.App(width="medium", app_title="Tempus and Hora")
 
 
 @app.cell
@@ -44,14 +44,35 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(mo):
-    probability_p_times_10000 = mo.ui.slider(0, 1000, value=100, label="Using this slider will update probability p.")
-    probability_p_times_10000
-    return (probability_p_times_10000,)
+    mo.md(r"""
+    In order to elucidate Simon's parable, the following code cells provide an implementation in Python. The core classes `Tempus` and `Hora` are designed to be as faithful to the prose as possible, with particular care toward making sure the core number of subassemblies, 111, is precisely reached by Hora.
+
+    Using these classes, we proceed with both a visualization and a simulation.
+    """)
+    return
 
 
 @app.cell(hide_code=True)
-def _(probability_p_times_10000):
-    probability = probability_p_times_10000.value / 10000
+def _(mo):
+    mo.md(r"""
+    ## Fundamental control
+
+    The central variable of the narrative is the probability, $p$, that the watchmakers will be interrupted on any given step in assembly. It can be adjusted with the slider below: the default of $0.01$ is taken from the story.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    probability_p_times_10000 = mo.ui.slider(0, 1000, value=100, label="Update probability p. Press submit to process updates")
+    form = probability_p_times_10000.form()
+    form
+    return (form,)
+
+
+@app.cell(hide_code=True)
+def _(form):
+    probability = form.value / 10000
     print(f"Probability p of an interruption: {probability}")
     return (probability,)
 
@@ -60,6 +81,8 @@ def _(probability_p_times_10000):
 def _(mo):
     mo.md(r"""
     ## Core Classes
+
+    These are the implementing classes for both watchmakers. They will say hello.
     """)
     return
 
@@ -247,6 +270,8 @@ def _(Hora, Tempus):
 def _(mo):
     mo.md(r"""
     ## Visualization
+
+    Here we have a sort of *post facto* visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to "scrub through" those data.
     """)
     return
 
@@ -293,7 +318,7 @@ def _(Hora, Tempus, mo, np, probability):
 def _(MAX_FRAMES, mo):
     frame_slider = mo.ui.slider(
             start=0, stop=MAX_FRAMES - 1, step=1, value=1 - 1,
-            label="Scrub through simulation",
+            label="Use this control to scrub through visualization data.",
             full_width=True,
         )
     frame_slider
@@ -499,8 +524,7 @@ def _(mo, np):
 
 @app.cell(hide_code=True)
 def _(simulated_watches):
-    print(f"Number of simulated watches: {simulated_watches.value}")
-    print("Simulation will re-run on change.")
+    print(f"Number of watches to be simulated: {simulated_watches.value}")
     return
 
 
@@ -531,7 +555,6 @@ def _(
         print(f"  Hora:   111 * S({K}) = {hora_expected:.1f} steps/watch")
         print(f"  Tempus: S({TEMPUS_PARTS_PER_WATCH}) = {tempus_expected:.1f} steps/watch")
         print(f"  Ratio:  {tempus_expected / hora_expected:.1f}x")
-        print("From Saltzer: we conclude that Hora can produce 1973 times as many watches per unit time as can Tempus.")
 
         # — Hora —
         # Here we give Hora (and perhaps his daughter) 10000 watches to make for us.
