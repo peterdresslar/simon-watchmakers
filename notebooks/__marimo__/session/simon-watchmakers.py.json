@@ -19,12 +19,12 @@
     },
     {
       "id": "MJUe",
-      "code_hash": "058cdcdbcb3e430077e088bc1124d090",
+      "code_hash": "df8c1916fb9f4c4c3d7d0c0f3eb6ab69",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"simons-watchmakers\">Simon's Watchmakers</h1>\n<span class=\"paragraph\">Herbert Simon's <em>The Architecture of Complexity</em> (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers---Hora and Tempus---along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.</span>\n<span class=\"paragraph\">Simon's parable begins:</span>\n<blockquote>\n<span class=\"paragraph\">There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently... However, Hora prospered, while Tempus lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1000 parts each. Tempus had so constructed his so that if he had one partly assembled and had to put it down---to answer the phone say---it immediately fell to pieces...</span>\n<span class=\"paragraph\">Hora had designed them so that he could put together subassemblies of ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter constituted the whole watch. Hence, when Hora had to... answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the hours it took Tempus.</span>\n</blockquote></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"simons-watchmakers\">Simon's Watchmakers</h1>\n<span class=\"paragraph\">Herbert Simon's <a href=\"https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31\" rel=\"noopener noreferrer\" target=\"_blank\"><em>The Architecture of Complexity</em></a> (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers\u2014Hora and Tempus\u2014along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.</span>\n<span class=\"paragraph\">Simon's parable begins (with some editing):</span>\n<blockquote>\n<span class=\"paragraph\">There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently... However, Hora prospered, while Tempus lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1000 parts each. <strong>Tempus</strong> had so constructed his so that if he had one partly assembled and had to put it down\u2014to answer the phone say\u2014it immediately fell to pieces...</span>\n<span class=\"paragraph\"><strong>Hora</strong> had designed them so that he could put together subassemblies of ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter constituted the whole watch. Hence, when Hora had to... answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the hours it took Tempus.</span>\n</blockquote></span>"
           }
         }
       ],
@@ -32,12 +32,12 @@
     },
     {
       "id": "vblA",
-      "code_hash": "f89d1d1bd017c85c0ed4c70338e641f2",
+      "code_hash": "bf751f5e2c6b6e1e111eec090037bc66",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><blockquote>\n<span class=\"paragraph\">Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <em>p</em>. Then the probability that <strong>Tempus</strong> can complete a watch he has started without interruption is (1-p)^1000---a very small number unless p is .001 or less.</span>\n<span class=\"paragraph\">On the other hand, <strong>Hora</strong> has to complete 111 subassemblies... the probability that he will not be interrupted while completing any one of these is (1-p)^10... if p is about .01... then a straightforward calculation shows that it will take Tempus on the average, about 4000 times as long to assemble a watch as Hora.</span>\n</blockquote></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><blockquote>\n<span class=\"paragraph\">Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <em>p</em>. Then the probability that <strong>Tempus</strong> can complete a watch he has started without interruption is (1-p)^1000\u2014a very small number unless p is .001 or less.</span>\n<span class=\"paragraph\">On the other hand, <strong>Hora</strong> has to complete 111 subassemblies... the probability that he will not be interrupted while completing any one of these is (1-p)^10... if p is about .01... then a straightforward calculation shows that it will take Tempus on the average, about 4000 times as long to assemble a watch as Hora.</span>\n</blockquote></span>"
           }
         }
       ],
@@ -50,7 +50,7 @@
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='c9523709-d473-7d16-3048-de6c240079de'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will update probability p.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='bkHC-0' random-id='7599a724-ecf7-f387-9a53-3b45c9e66105'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will update probability p.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
@@ -77,6 +77,19 @@
       ]
     },
     {
+      "id": "rofH",
+      "code_hash": "10416dc87675850917d59155789086a9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"visualization\">Visualization</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "PKri",
       "code_hash": "f7fa82083b7cbc4ba124d955f8100736",
       "outputs": [
@@ -91,13 +104,46 @@
     },
     {
       "id": "sqWO",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "0bd1a08349c894c4e520603520c9892c",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 6\n    def visualize_watchmakers\n                             ^\nSyntaxError: expected '('\n",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
-      "id": "Xref",
-      "code_hash": "696551bc374d2256743cce3aae10d2e9",
+      "id": "JwGn",
+      "code_hash": "ba950aa93ead842b1a5c3a29ffcfa334",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"simulation\">Simulation</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Fdqk",
+      "code_hash": "6ad2bb5ad5ea3b4ffcbe869d2585776d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='Fdqk-0' random-id='2b8ec9d8-2efb-6305-1544-effd007a9f02'><marimo-slider data-initial-value='1' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='3' data-step='1' data-steps='[1000,10000,100000,1000000]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "halg",
+      "code_hash": "8a0a9629f0787130c120e3a43c8c9d74",
       "outputs": [
         {
           "type": "data",
@@ -110,19 +156,52 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\n\nHora: 10000 watches in 11,735,447 steps\n  Avg steps/watch:      1173.5  (expected: 1173.6)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  \u2713 Sim/Analytical = 1.0000\n\nTempus: 5 watches in 11,735,447 steps\n  Avg steps/watch: 2347089.4  (expected: 2316256.5)\n  Interrupts: 117,520\n  Work lost:  11,612,837 parts\n  Best progress: (not tracked, but expected ~100 parts before reset)\n\nIn 11,735,447 steps:\n  Hora:   10000 watches\n  Tempus: 5 watches\n  Ratio:  2000x\n  Expected ratio: 1974x\n",
+          "text": "Number of simulated watches: 100000\nSimulation will re-run on change.\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "Qkqc",
-      "code_hash": "a3b87c2e2def2bca1ee36bf02549f462",
+      "id": "Xref",
+      "code_hash": "52ce79e3e0aab9837e9584aaa5c7cfbc",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">For reference, here is the prose of Simon (p. 470) in entirety:</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus;</li>\n<li>but, Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5];</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:\n$$\n1/111\\times 100/5 \\times .99<sup>{10}/.99</sup>{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n$$</span>\n<span class=\"paragraph\">[Footnote 7, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]</span></span>"
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\nFrom Saltzer: we conclude that Hora can produce 1973 times as many watches per unit time as can Tempus.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "XxCn",
+      "code_hash": "6432ed0debf2d17e176e32d7131597ac",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"discussion\">Discussion</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Qkqc",
+      "code_hash": "fad76fe5f7be9c288e16b1ab62621c96",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prose-and-references\">Prose and References</h2>\n<span class=\"paragraph\">For reference, here is the prose of Simon (p. 470) in entirety:</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus; but,</li>\n<li>Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex><hr />\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span></span>"
           }
         }
       ],
