@@ -4,7 +4,7 @@ __generated_with = "0.19.11"
 app = marimo.App(width="medium", app_title="Tempus and Hora")
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     import marimo as mo
     import numpy as np
@@ -12,6 +12,14 @@ def _():
     import pandas as pd
 
     return mo, np
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    *Welcome! If this is your first experience with a marimo notebook, please be aware that you have many options to proceed in a way that suits your curiosity level (or lack thereof) for the Python code itself. You can switch to app mode and simply press play and work with the interactive elements below; or, you could dig into edit mode to explore and even edit the code for yourself. Regardless, all of the code is deisigned to run straight through if you start with simply the run button at the bottom right corner of your screen.*
+    """)
+    return
 
 
 @app.cell(hide_code=True)
