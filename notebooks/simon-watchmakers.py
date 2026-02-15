@@ -57,175 +57,252 @@ def _(probability_p_times_10000):
 
 
 @app.cell
-def _(np, probability):
-    MAX_FRAME = 22222                 # Arbitrary maximum time for simulation
-    BASE_TICKS_PER_FRAME = 5          # This is an inverted dt, can be adjusted for probability
+def _():
     HORA_PARTS_PER_SUB = 10           # Number of parts for each Hora component
-    K = HORA_PARTS_PER_SUB            # Shorter version
+    K = HORA_PARTS_PER_SUB            # Shorter version of that, matches Saltzer 1999
     TEMPUS_PARTS_PER_WATCH = 1000     # Poor Tempus
 
-    # Intializers
+    class Hora:
+        """Hora the watchmaker: builder of modular watches.
 
-    def reset_state():
-        p = probability
-        ticks_per_frame = BASE_TICKS_PER_FRAME * 1
-    
-        hora_watches = 0
-        hora_assemb = 0
-        hora_sub_assemb = 0
-        hora_sub_sub_assemb = 0
-        hora_parts = 0
-        hora_currently_working_on = 0   # 0 -->  "elements"
-                                        # 1 -->  "subassemblies of ten elements each"
-                                        # 2 -->  "Ten of these subassemblies could be put together into larger subassembly"
-                                        # 3 -->  "a system of ten of the latter constituted the whole watch"
-    
-        hora_in_final_step = False
-        hora_interrupts = 0
-        hora_work_lost = 0
-    
-        tempus_watches = 0
-        tempus_parts = 0
-        tempus_in_final_step = False
-        tempus_interrupts = 0
-        tempus_work_lost = 0
-    
+        State tracks progress at three levels, plus inventory of completed
+        pieces waiting to be joined at the next level up.
+        """
 
-    def run_watchmaker():
-        reset_state()  # TODO we need to return state or have a state class or something
-        rng = np.random.default_rng()  # Could implement a seed here
+        def __init__(self):
+            # Progress within current assembly at each level (0..K-1)
+            self.parts = 0          # level 0: elements
+            self.sub_assembs = 0     # level 1: joining subassemblies
+            self.larger_subs = 0    # level 2: joining "larger" subassemblies
 
-        p = probability
-        ticks_per_frame = BASE_TICKS_PER_FRAME * 1
-    
-        hora_watches = 0
-        hora_assemb = 0
-        hora_sub_assemb = 0
-        hora_sub_sub_assemb = 0
-        hora_parts = 0
-        hora_currently_working_on = 0   # 0 -->  "elements"
-                                        # 1 -->  "subassemblies of ten elements each"
-                                        # 2 -->  "Ten of these subassemblies could be put together into larger subassembly"
-                                        # 3 -->  "a system of ten of the latter constituted the whole watch"
-    
-        hora_in_final_step = False
-        hora_interrupts = 0
-        hora_work_lost = 0
-    
-        tempus_watches = 0
-        tempus_parts = 0
-        tempus_in_final_step = False
-        tempus_interrupts = 0
-        tempus_work_lost = 0
+            # Inventory: completed pieces ready for the next level
+            self.sub_assembs_ready = 0       # completed subassemblies for current larger subassembly (0..10)
+            self.larger_subs_ready = 0       # completed larger subassemblies for current watch (0..10)
 
-        snapshots = []
+            self.currently_working_on = 0
+                # 0 -->  "elements"
+                # 1 -->  "subassemblies of ten elements each"
+                # 2 -->  "Ten of these subassemblies could be put together
+                #         into larger subassembly"
+                # completing level 2 --> not a real state!
+                #         "a system of ten of the latter constituted
+                #          the whole watch"
+                #          NOTE: This is *not* completely faithful to the story; as
+                #          we can see here we are somewhat ignoring some steps from the prose.
+                #          See discussion from betlow.
 
-        for current_tick in range(MAX_FRAME):
+            # Counters
+            self.watches = 0
+            self.interrupts = 0
+            self.work_lost = 0                      # parts-equivalent
+            self.total_steps = 0
+            self.all_assemblies_completed = 0       # assemblies at any level, about which Simon says: 
+                                                    # "Hora has to complete one hundred eleven sub-assemblies of ten parts each"
 
-            print(f"Tick {current_tick} Watches {hora_watches} Assembs {hora_assemb} Sub-assemb {hora_sub_assemb} Sub-Sub {hora_sub_sub_assemb} Parts {hora_parts} Currently Working On {hora_currently_working_on} Final Step {hora_in_final_step} Hora PPS {HORA_PARTS_PER_SUB - 1}")
+        def _get_progress(self):
+            """Return current progress at the active level."""
+            if self.currently_working_on == 0:
+                return self.parts
+            elif self.currently_working_on == 1:
+                return self.sub_assembs
+            else:
+                return self.larger_subs
 
-            # ===== HORA =====
-            interrupted_h = rng.random() < p
+        def _set_progress(self, value):
+            """Set progress at the active level."""
+            if self.currently_working_on == 0:
+                self.parts = value
+            elif self.currently_working_on == 1:
+                self.sub_assembs = value
+            else:
+                self.larger_subs = value
 
-            if interrupted_h:
-                hora_interrupts += 1
-                # Lose progress at whatever level we're currently working on
-                if hora_currently_working_on == 0:
-                    hora_work_lost += hora_parts
-                    hora_parts = 0
-                elif hora_currently_working_on == 1:
-                    hora_work_lost += hora_sub_sub_assemb * K  # TODO explicitly track
-                    hora_sub_sub_assemb = 0
-                elif hora_currently_working_on == 2:
-                    hora_work_lost += hora_sub_assemb * K * K
-                    hora_sub_assemb = 0
-                elif hora_currently_working_on == 3:
-                    hora_work_lost += hora_assemb * K * K * K
-                    hora_assemb = 0
-                hora_in_final_step = False
-                hora_currently_working_on = 0  # back to building parts
+        def step(self, rng, p):
+            self.total_steps += 1
+            level = self.currently_working_on
+
+            if rng.random() < p:
+                # Interrupted — lose current level's progress
+                self.interrupts += 1
+                progress = self._get_progress()
+                self.work_lost += progress * (K ** level)
+                self._set_progress(0)
+                # Stay at this level — the pieces below are safe,
+                # we just need to redo this assembly.
 
             else:
-                if not hora_in_final_step:
-                    # Normal increment at current level
-                    if hora_currently_working_on == 0:
-                        hora_parts += 1
-                        if hora_parts >= K - 1:
-                            hora_in_final_step = True
-                    elif hora_currently_working_on == 1:
-                        hora_sub_sub_assemb += 1
-                        if hora_sub_sub_assemb >= K - 1:
-                            hora_in_final_step = True
-                    elif hora_currently_working_on == 2:
-                        hora_sub_assemb += 1
-                        if hora_sub_assemb >= K - 1:
-                            hora_in_final_step = True
-                    elif hora_currently_working_on == 3:
-                        hora_assemb += 1
-                        if hora_assemb >= K - 1:
-                            hora_in_final_step = True
+                # Successful step
+                self._set_progress(self._get_progress() + 1)
 
-                else:
-                    # We are at a step analogous to a clock rolling over a digit here
-                    if hora_currently_working_on == 0:
-                        hora_sub_sub_assemb += 1
-                        hora_parts = 0
-                    elif hora_currently_working_on == 1:
-                        hora_sub_assemb += 1
-                        hora_sub_sub_assemb = 0
-                    elif hora_currently_working_on == 2:
-                        hora_assemb += 1
-                        hora_sub_assemb = 0
-                    elif hora_currently_working_on == 3:
-                        # do_something_hora_watch_complete()
-                        hora_watches += 1
-                        hora_assemb = 0
+                if self._get_progress() >= K:
+                    # Assembly complete at this level
+                    self._set_progress(0)
+                    self.all_assemblies_completed += 1   # no matter the level, track an assembly to all_assemblies
 
-                    hora_in_final_step = False
+                    if level == 0:
+                        # Sub-assembly complete
+                        self.sub_assembs_ready += 1
+                        if self.sub_assembs_ready >= K:
+                            # 10 sub-assmblies ready, switch to joining them
+                            self.currently_working_on = 1
 
-                    # Now we have to "check those other clock digits"
-                    next_level = hora_currently_working_on + 1
-
-                    if next_level <= 2:
-                        # check if the level we promoted into is now full
-                        level_values = [hora_parts, hora_sub_sub_assemb, hora_sub_assemb, hora_assemb]
-                        if level_values[next_level] >= K - 1:
-                            # the next level is ready to promote on the next tick
-                            hora_currently_working_on = next_level
-                            hora_in_final_step = True
+                    elif level == 1:
+                        # Larger assembly complete, consume subassemb
+                        self.sub_assembs_ready = 0
+                        self.larger_subs_ready += 1
+                        if self.larger_subs_ready >= K:
+                            # 10 larger subs ready, switch to joining them
+                            self.currently_working_on = 2
                         else:
-                            # back to building parts
-                            hora_currently_working_on = 0
-                    elif next_level == 3:
-                        if hora_assemb >= K - 1:
-                            hora_currently_working_on = 3
-                            hora_in_final_step = True
-                        else:
-                            hora_currently_working_on = 0
-                    else:
-                        # next_level > 3: we just completed a watch, back to parts. Ah, the grind.
-                        hora_currently_working_on = 0
+                            # Need more subs, back to building parts
+                            self.currently_working_on = 0
 
-                    
-                
-    
-            
+                    elif level == 2:
+                        # Watch complete!
+                        self.larger_subs_ready = 0
+                        self.watches += 1
+                        self.currently_working_on = 0
 
-    
-    
-    
-    
-    
+            return self
+
+        def snapshot(self):
+            # return current state as a dict
+            return {
+                'parts': self.parts,
+                'sub_assembs': self.sub_assembs,
+                'sub_assembs_ready': self.sub_assembs_ready,
+                'larger_subs': self.larger_subs,
+                'larger_subs_ready': self.larger_subs_ready,
+                'currently_working_on': self.currently_working_on,
+                'watches': self.watches,
+                'interrupts': self.interrupts,
+                'work_lost': self.work_lost,
+                'total_steps': self.total_steps,
+                'all_assemblies_completed': self.all_assemblies_completed,
+            }
+
+    class Tempus:
+        """Tempus the watchmaker: builder of monolithic watches.
+
+        State tracks Tempus' progress, which is likely to be frustrated.
+        """
+
+        def __init__(self):
+            self.parts = 0          # 0..TEMPUS_PARTS_PER_WATCH
+
+            # Counters
+            self.watches = 0
+            self.interrupts = 0
+            self.work_lost = 0      # parts lost to interruptions
+            self.total_steps = 0
+
+        def step(self, rng, p):
+            self.total_steps += 1
+
+            if rng.random() < p:
+                # Interrupted — lose everything
+                self.interrupts += 1
+                self.work_lost += self.parts
+                self.parts = 0
+            else:
+                self.parts += 1
+                if self.parts >= TEMPUS_PARTS_PER_WATCH:
+                    self.watches += 1
+                    self.parts = 0
+
+            return self
+
+        def snapshot(self):
+            # return current state as a dict
+            return {
+                'parts': self.parts,
+                'watches': self.watches,
+                'interrupts': self.interrupts,
+                'work_lost': self.work_lost,
+                'total_steps': self.total_steps,
+            }
 
 
 
-
-    return (run_watchmaker,)
+    return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus
 
 
 @app.cell
-def _(run_watchmaker):
-    run_watchmaker()
+def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability):
+    # Simulation
+
+    MAX_FRAME = 22222                 # Arbitrary maximum time for simulation
+    BASE_TICKS_PER_FRAME = 5          # This is an inverted dt, can be adjusted for probability
+
+    def run_watchmakers(probability):
+        p = probability
+
+        T = 1 / (1 - p)
+
+        def S(k):
+            """Leighton/Saltzer: expected steps to complete a k-step assembly."""
+            return T * (T**k - 1) / (T - 1)
+
+        hora_expected = 111 * S(K)
+        tempus_expected = S(TEMPUS_PARTS_PER_WATCH)
+
+        print(f"Analytical predictions (p={p}):")
+        print(f"  Hora:   111 * S({K}) = {hora_expected:.1f} steps/watch")
+        print(f"  Tempus: S({TEMPUS_PARTS_PER_WATCH}) = {tempus_expected:.1f} steps/watch")
+        print(f"  Ratio:  {tempus_expected / hora_expected:.1f}x")
+        print()
+
+        # --- Hora ---
+        n_target = 10000
+        rng = np.random.default_rng(42)
+        hora = Hora()
+
+        while hora.watches < n_target:
+            hora.step(rng, p)
+
+        avg_hora = hora.total_steps / hora.watches
+        avg_assemb = hora.all_assemblies_completed / hora.watches
+
+        print(f"Hora: {hora.watches} watches in {hora.total_steps:,} steps")
+        print(f"  Avg steps/watch:      {avg_hora:.1f}  (expected: {hora_expected:.1f})")
+        print(f"  Avg assemblies/watch: {avg_assemb:.1f}  (expected: 111)")
+
+        ratio_h = avg_hora / hora_expected
+        print(f"  {'✓' if abs(ratio_h - 1.0) < 0.02 else '✗'} Sim/Analytical = {ratio_h:.4f}")
+        print()
+
+        # --- Tempus ---
+        # Tempus is so slow we can't run 10000 watches; run for same number of
+        # steps as Hora and see how many watches he completes.
+        rng2 = np.random.default_rng(42)
+        tempus = Tempus()
+
+        for _ in range(hora.total_steps):
+            tempus.step(rng2, p)
+
+        print(f"Tempus: {tempus.watches} watches in {tempus.total_steps:,} steps")
+        if tempus.watches > 0:
+            avg_tempus = tempus.total_steps / tempus.watches
+            print(f"  Avg steps/watch: {avg_tempus:.1f}  (expected: {tempus_expected:.1f})")
+        else:
+            print(f"  (zero watches — expected ~{hora.total_steps / tempus_expected:.1f} watches)")
+        print(f"  Interrupts: {tempus.interrupts:,}")
+        print(f"  Work lost:  {tempus.work_lost:,} parts")
+        print(f"  Best progress: (not tracked, but expected ~{1/p:.0f} parts before reset)")
+        print()
+
+        # --- Comparison ---
+        print(f"In {hora.total_steps:,} steps:")
+        print(f"  Hora:   {hora.watches} watches")
+        print(f"  Tempus: {tempus.watches} watches")
+        if tempus.watches > 0:
+            print(f"  Ratio:  {hora.watches / tempus.watches:.0f}x")
+        else:
+            print(f"  Ratio:  ∞  (Tempus completed zero watches)")
+        print(f"  Expected ratio: {tempus_expected / hora_expected:.0f}x")
+
+    run_watchmakers(probability)
+
     return
 
 
