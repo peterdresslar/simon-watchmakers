@@ -72,7 +72,9 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _(form):
-    probability = form.value / 10000
+    probability = .01
+    if form.value is not None:
+        probability = form.value / 10000
     print(f"Probability p of an interruption: {probability}")
     return (probability,)
 
@@ -262,7 +264,6 @@ def _(Hora, Tempus):
     h = Hora()
     print(f"Hello, I am {t.name}, a linear watchmaker.")
     print(f"Hello, I am {h.name}, a modular watchmaker.")
-
     return
 
 
@@ -283,28 +284,28 @@ def _(Hora, Tempus, mo, np, probability):
     def setup():
         MAX_FRAMES = 1000000
         BASE_TICKS_PER_FRAME = 5
-    
+
         p_viz = probability
         rng_h = np.random.default_rng()
         rng_t = np.random.default_rng()
-    
+
         hora_viz = Hora()
         tempus_viz = Tempus()
-    
+
         snapshots = []
-    
+
         for frame in range(MAX_FRAMES):
             for _ in range(BASE_TICKS_PER_FRAME):
                 hora_viz.step(rng_h, p_viz)
                 tempus_viz.step(rng_t, p_viz)
-    
+
             snapshots.append({
                 'frame': frame,
                 'step': (frame + 1) * BASE_TICKS_PER_FRAME,
                 **{f'h_{k}': v for k, v in hora_viz.snapshot().items()},
                 **{f't_{k}': v for k, v in tempus_viz.snapshot().items()},
             })
-    
+
         mo.md(f"Simulation complete: {MAX_FRAMES} frames × {BASE_TICKS_PER_FRAME} ticks = **{MAX_FRAMES * BASE_TICKS_PER_FRAME:,}** total steps at p={p_viz}")
         return snapshots, MAX_FRAMES
 
@@ -517,29 +518,25 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo, np):
     slider_steps = 10**(np.arange(3,7)) # [1000   10000  100000 1000000]
-    simulated_watches = mo.ui.slider(steps=slider_steps, value=10000, label="Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.")
-    simulated_watches
-    return (simulated_watches,)
+    simulated_watches = mo.ui.slider(steps=slider_steps, value=1000, label="Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.")
+    sw_form = simulated_watches.form()
+    sw_form
+    return simulated_watches, sw_form
 
 
 @app.cell(hide_code=True)
-def _(simulated_watches):
+def _(simulated_watches, sw_form):
+    s_w = 10000
+    if sw_form.value is not None:
+        s_w = sw_form.value
     print(f"Number of watches to be simulated: {simulated_watches.value}")
-    return
+    return (s_w,)
 
 
 @app.cell(hide_code=True)
-def _(
-    Hora,
-    K,
-    TEMPUS_PARTS_PER_WATCH,
-    Tempus,
-    np,
-    probability,
-    simulated_watches,
-):
+def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
     # Simulation
-    def simulate_watchmakers(probability, simulated_watches):
+    def simulate_watchmakers(probability, s_w):
         p = probability
 
         T = 1 / (1 - p)
@@ -558,7 +555,7 @@ def _(
 
         # — Hora —
         # Here we give Hora (and perhaps his daughter) 10000 watches to make for us.
-        target = simulated_watches
+        target = s_w
         rng = np.random.default_rng()  # use a seed if you would like to guarantee/replay results
         hora = Hora()
 
@@ -606,7 +603,7 @@ def _(
             print(f"  Ratio:  ∞  (Tempus completed zero watches)")
         print(f"  Expected ratio: {tempus_expected / hora_expected:.0f}x")
 
-    simulate_watchmakers(probability, simulated_watches.value)
+    simulate_watchmakers(probability, s_w)
     return
 
 
@@ -623,7 +620,7 @@ def _(mo):
     mo.md(r"""
     ## Prose and References
 
-    For reference, here is the prose of Simon (p. 470) in entirety:
+    For reference, here is the complete prose of Simon watchmakers story (p. 470):
 
     ### THE EVOLUTION OF COMPLEX SYSTEMS
 

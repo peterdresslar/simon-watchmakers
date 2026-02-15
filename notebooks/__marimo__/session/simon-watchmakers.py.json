@@ -5,19 +5,6 @@
   },
   "cells": [
     {
-      "id": "Hbol",
-      "code_hash": "6e2a0c16254ec479a9783ce170013110",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "MJUe",
       "code_hash": "df8c1916fb9f4c4c3d7d0c0f3eb6ab69",
       "outputs": [
@@ -44,7 +31,7 @@
       "console": []
     },
     {
-      "id": "xgEQ",
+      "id": "bkHC",
       "code_hash": "1a300646d6efb9e16b39f192220de9a0",
       "outputs": [
         {
@@ -57,7 +44,7 @@
       "console": []
     },
     {
-      "id": "liJV",
+      "id": "lEQa",
       "code_hash": "62b9f600fae595ea1f63b76cba135514",
       "outputs": [
         {
@@ -70,21 +57,99 @@
       "console": []
     },
     {
-      "id": "bkHC",
-      "code_hash": "76edb0cfc988a85922b5736857410892",
+      "id": "SFPL",
+      "code_hash": "2208da78691d68c213d964afa3050829",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='bkHC-2' random-id='595d31fc-aba2-70d3-5ac0-2a56b05b8f65'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;bkHC-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='bkHC-1' random-id='3026563c-7a5f-c839-5877-9718ba714f00'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Update probability p. Press submit to process updates&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"core-classes\">Core Classes</h2>\n<span class=\"paragraph\">These are the implementing classes for both watchmakers. They will say hello.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "lEQa",
-      "code_hash": "11bb6f2f1d7fd3c1e2267d51d37097ec",
+      "id": "Kclp",
+      "code_hash": "bbe786f7422ef60ca5a0edaf88d861e7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"visualization\">Visualization</h2>\n<span class=\"paragraph\">Here we have a sort of <em>post facto</em> visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to \"scrub through\" those data.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "ba950aa93ead842b1a5c3a29ffcfa334",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"simulation\">Simulation</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "6432ed0debf2d17e176e32d7131597ac",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"discussion\">Discussion</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "dc2353376aafed58385e87b8488b664f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prose-and-references\">Prose and References</h2>\n<span class=\"paragraph\">For reference, here is the complete prose of Simon watchmakers story (p. 470):</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus; but,</li>\n<li>Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex><hr />\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "6e2a0c16254ec479a9783ce170013110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "76edb0cfc988a85922b5736857410892",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<marimo-ui-element object-id='PKri-2' random-id='a2d7a3c8-a54f-0732-0790-cf7b4d6906dc'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;PKri-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='PKri-1' random-id='bc165db8-2132-c012-7d43-b85fd7aa8e15'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Update probability p. Press submit to process updates&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "27696f754c9d96d152e3715f3d4ac880",
       "outputs": [
         {
           "type": "data",
@@ -103,20 +168,7 @@
       ]
     },
     {
-      "id": "uBwI",
-      "code_hash": "2208da78691d68c213d964afa3050829",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"core-classes\">Core Classes</h2>\n<span class=\"paragraph\">These are the implementing classes for both watchmakers. They will say hello.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "PKri",
+      "id": "BYtC",
       "code_hash": "2ebdb865e7d922dcd7f5b931736cbf38",
       "outputs": [
         {
@@ -129,8 +181,8 @@
       "console": []
     },
     {
-      "id": "HqFq",
-      "code_hash": "ea58fd7808c2c69ed2f4c31db4781ff3",
+      "id": "RGSE",
+      "code_hash": "31ab26badf54fd5cdead1c8ecf5ed3d9",
       "outputs": [
         {
           "type": "data",
@@ -149,21 +201,8 @@
       ]
     },
     {
-      "id": "rofH",
-      "code_hash": "bbe786f7422ef60ca5a0edaf88d861e7",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"visualization\">Visualization</h2>\n<span class=\"paragraph\">Here we have a sort of <em>post facto</em> visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to \"scrub through\" those data.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "sqWO",
-      "code_hash": "f4250fb937d4058be1f1ab9d815fdd10",
+      "id": "emfo",
+      "code_hash": "433e40e97db708cb15d6cc43569723a8",
       "outputs": [
         {
           "type": "data",
@@ -182,60 +221,47 @@
       ]
     },
     {
-      "id": "lTwT",
+      "id": "Hstk",
       "code_hash": "09d1ac82614ace7dfbe1c739f457c837",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='lTwT-0' random-id='9c6e8c5c-12a0-0626-61bd-387bb07e706a'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Use this control to scrub through visualization data.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='999999' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
+            "text/html": "<marimo-ui-element object-id='Hstk-0' random-id='2c1d59e6-9e02-aa6d-c859-9a9fe8cc5253'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Use this control to scrub through visualization data.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='999999' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "HPvu",
+      "id": "nWHF",
       "code_hash": "f1785ad0c80624368251ca10e2a2c9ca",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "\n<div style=\"font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;\">\n\n    <div style=\"font-size:11px;color:#999;margin-bottom:12px;\">\n        Step <b>5,000,000</b> &nbsp;|&nbsp; p = 0.01\n        &nbsp;|&nbsp; Frame 1,000,000 / 1,000,000\n    </div>\n\n    <!-- HORA -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#4c78a8;margin-bottom:8px;\">\n            HORA\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                10 \u00d7 10 \u00d7 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch\n            </span>\n        </div>\n\n        <!-- Row 1: subassemblies_ready + current parts progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Subassemblies:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Larger subs:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:2px solid #6fa8dc;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #6fa8dc;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:10.0%;height:100%;background:#6fa8dc;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                1/10</span>\n        </div>\n\n        <!-- Row 3: assembly (watch) progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Watch assembly:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n    </div>\n\n    <!-- TEMPUS -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#e45756;margin-bottom:8px;\">\n            TEMPUS\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                1000 parts, one long chain\n            </span>\n        </div>\n\n        <div style=\"display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Progress:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #e45756;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:9.2%;height:100%;background:#e45756;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:55px;\">\n                92/1000</span>\n        </div>\n    </div>\n\n    <!-- WATCH OUTPUT -->\n    <div style=\"display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;\">\n        <div>\n            <div style=\"font-size:12px;color:#4c78a8;margin-bottom:4px;font-weight:bold;\">\n                Hora's watches</div>\n            <span style=\"font-size:20px;\">\u231a \u00d7 4260</span>\n        </div>\n        <div>\n            <div style=\"font-size:12px;color:#e45756;margin-bottom:4px;font-weight:bold;\">\n                Tempus's watches</div>\n            <span style=\"font-size:20px;\">\u231a\u231a</span>\n        </div>\n    </div>\n\n    <!-- STATUS -->\n    <div style=\"margin-top:12px;font-size:10px;color:#999;border-top:1px solid #333;padding-top:6px;\">\n        Hora: 49,972 interrupts, ~594,482 parts-equiv lost,\n        472,936 assemblies completed,\n        working on level 1\n        &nbsp;|&nbsp;\n        Tempus: 50,012 interrupts, 4,947,896 parts lost\n    </div>\n\n</div>\n"
+            "text/html": "\n<div style=\"font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;\">\n\n    <div style=\"font-size:11px;color:#999;margin-bottom:12px;\">\n        Step <b>70,870</b> &nbsp;|&nbsp; p = 0.01\n        &nbsp;|&nbsp; Frame 14,174 / 1,000,000\n    </div>\n\n    <!-- HORA -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#4c78a8;margin-bottom:8px;\">\n            HORA\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                10 \u00d7 10 \u00d7 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch\n            </span>\n        </div>\n\n        <!-- Row 1: subassemblies_ready + current parts progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Subassemblies:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:2px solid #6fa8dc;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #6fa8dc;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#6fa8dc;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Larger subs:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 3: assembly (watch) progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Watch assembly:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n    </div>\n\n    <!-- TEMPUS -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#e45756;margin-bottom:8px;\">\n            TEMPUS\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                1000 parts, one long chain\n            </span>\n        </div>\n\n        <div style=\"display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Progress:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #e45756;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:12.5%;height:100%;background:#e45756;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:55px;\">\n                125/1000</span>\n        </div>\n    </div>\n\n    <!-- WATCH OUTPUT -->\n    <div style=\"display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;\">\n        <div>\n            <div style=\"font-size:12px;color:#4c78a8;margin-bottom:4px;font-weight:bold;\">\n                Hora's watches</div>\n            <span style=\"font-size:20px;\">\u231a \u00d7 60</span>\n        </div>\n        <div>\n            <div style=\"font-size:12px;color:#e45756;margin-bottom:4px;font-weight:bold;\">\n                Tempus's watches</div>\n            <span style=\"color:#555;font-size:24px;\">\u2014</span>\n        </div>\n    </div>\n\n    <!-- STATUS -->\n    <div style=\"margin-top:12px;font-size:10px;color:#999;border-top:1px solid #333;padding-top:6px;\">\n        Hora: 642 interrupts, ~10,111 parts-equiv lost,\n        6,738 assemblies completed,\n        working on level 0\n        &nbsp;|&nbsp;\n        Tempus: 753 interrupts, 69,992 parts lost\n    </div>\n\n</div>\n"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "JwGn",
-      "code_hash": "ba950aa93ead842b1a5c3a29ffcfa334",
+      "id": "ZHCJ",
+      "code_hash": "e5018254cebd16b02d0e3c957346de25",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"simulation\">Simulation</h2></span>"
+            "text/html": "<marimo-ui-element object-id='ZHCJ-2' random-id='73903465-5021-e4ad-c9b1-9b7eb53c51e9'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;ZHCJ-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='ZHCJ-1' random-id='77790428-e82d-6ae9-ad4a-3bd99980056e'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='3' data-step='1' data-steps='[1000,10000,100000,1000000]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "Fdqk",
-      "code_hash": "6ad2bb5ad5ea3b4ffcbe869d2585776d",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='Fdqk-0' random-id='2b8ec9d8-2efb-6305-1544-effd007a9f02'><marimo-slider data-initial-value='1' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='3' data-step='1' data-steps='[1000,10000,100000,1000000]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "halg",
-      "code_hash": "86aefac3e739eaaf28768ddbfa0aef8c",
+      "id": "ROlb",
+      "code_hash": "6c407817ffffdd4eee5f83ad9f9c2a22",
       "outputs": [
         {
           "type": "data",
@@ -248,14 +274,14 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Number of watches to be simulated: 10000\n",
+          "text": "Number of watches to be simulated: 1000\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "Xref",
-      "code_hash": "ca74813d31fd74988afe85d8333249a2",
+      "id": "qnkX",
+      "code_hash": "8d682240086c91d2c32b0b0bcace1817",
       "outputs": [
         {
           "type": "data",
@@ -268,36 +294,10 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\nHora: 10000 watches in 11,738,618 steps\n  Avg steps/watch:      1173.9  (expected: 1173.6)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  \u2713 Sim/Analytical = 1.0002\n\nTempus: 1 watches in 11,738,618 steps\n  Avg steps/watch: 11738618.0  (expected: 2316256.5)\n  Interrupts: 117,579\n  Work lost:  11,620,003 parts\n  Best progress: (not tracked, but expected ~100 parts before reset)\n\nIn 11,738,618 steps:\n  Hora:   10000 watches\n  Tempus: 1 watches\n  Ratio:  10000x\n  Expected ratio: 1974x\n",
+          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\nHora: 10000 watches in 11,737,731 steps\n  Avg steps/watch:      1173.8  (expected: 1173.6)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  \u2713 Sim/Analytical = 1.0002\n\nTempus: 5 watches in 11,737,731 steps\n  Avg steps/watch: 2347546.2  (expected: 2316256.5)\n  Interrupts: 117,180\n  Work lost:  11,615,452 parts\n  Best progress: (not tracked, but expected ~100 parts before reset)\n\nIn 11,737,731 steps:\n  Hora:   10000 watches\n  Tempus: 5 watches\n  Ratio:  2000x\n  Expected ratio: 1974x\n",
           "mimetype": "text/plain"
         }
       ]
-    },
-    {
-      "id": "XxCn",
-      "code_hash": "6432ed0debf2d17e176e32d7131597ac",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"discussion\">Discussion</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "Qkqc",
-      "code_hash": "fad76fe5f7be9c288e16b1ab62621c96",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"prose-and-references\">Prose and References</h2>\n<span class=\"paragraph\">For reference, here is the prose of Simon (p. 470) in entirety:</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus; but,</li>\n<li>Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex><hr />\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span></span>"
-          }
-        }
-      ],
-      "console": []
     }
   ]
 }
