@@ -25,7 +25,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Simon's Watchmakers
+    # Simon's Watchmakers: Tempus, Hora, and Secunda
 
     Herbert Simon's [*The Architecture of Complexity*](https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31) (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers—Hora and Tempus—along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.
 
