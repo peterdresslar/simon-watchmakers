@@ -1,7 +1,7 @@
 import marimo
 
 __generated_with = "0.19.11"
-app = marimo.App(width="medium", app_title="Tempus and Hora")
+app = marimo.App(width="medium", app_title="Tempus, Hora, and Secunda")
 
 
 @app.cell(hide_code=True)
