@@ -903,7 +903,11 @@ def _(mo):
 
     ---
 
-    Simon may be sufficiently unimpeachable in his conversion of the parable to biology, but there is an insufficiency nonetheless: his ten thousand citations are from nearly every avenue of science, including many that that investigate human social systems far more closely attuned to cottage industries than a multicellular sponge in a tide pool could be.
+    Herbert Simon was a titan of Twentieth Century complexity theory, and an extrordinary general contributor during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
+
+    There is, nonetheless, an insufficiency in the work: and the importance of this insufficiency is magnified by the its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
+
+    One wonders if those authors, beyond the tricky task of catching the corrections of the math in later publications, have been entirely attuned in all cases to the importance of entropy to the system---if they have in each case thought to identify the Secundas to their Horas, and figured how to properly apply and quantify them. This seems a question that could be addressed rigorously and quantitatively through further investigation. With 10,000 papers and counting, the significance of the answer is potentially high.
     """)
     return
 
