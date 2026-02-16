@@ -103,7 +103,7 @@ def _(np):
     K = HORA_PARTS_PER_SUB            # Shorter version of that, matches Saltzer 1999
     TEMPUS_PARTS_PER_WATCH = 1000     # Poor Tempus
 
-    def _log_2T(p):
+    def log_2T(p):
         return np.log2(1 / (1 - p))   # our "constant" information function
                                       # returns bits per step (remains constant WRT p)
 
@@ -144,7 +144,7 @@ def _(np):
             self.all_assemblies_completed = 0       # assemblies at any level, about which Simon says: 
                                                     # "Hora has to complete one hundred eleven subassemblies of ten parts each"
 
-            # --- Shannon entropy states ---
+            # === Shannon entropy states ===
             # From the prose:
             # I = -log_2(P_k) = -log_2(T^(-k)) = k * log_2(T)
             # where 
@@ -179,7 +179,7 @@ def _(np):
                 self.larger_subs = value
 
         def _bank_bits(self, p):
-            self.committed_bits += K * _log_2T(p)
+            self.committed_bits += K * log_2T(p)
             self.provisional_bits = 0.0
 
         def step(self, rng, p):
@@ -199,8 +199,8 @@ def _(np):
                 # Successful step
                 new_progress = (self._get_progress() + 1)
                 self._set_progress(new_progress)
-                self.provisional_bits = new_progress * _log_2T(p)
-            
+                self.provisional_bits = new_progress * log_2T(p)
+
                 if self._get_progress() >= K:
                     # Assembly complete at this level
                     self._set_progress(0)
@@ -267,7 +267,7 @@ def _(np):
             self.work_lost = 0      # parts lost to interruptions
             self.total_steps = 0        
 
-            # --- Shannon entropy tracking ---
+            # === Shannon entropy tracking ===
             # committed_bits:    zero until a watch finishes, then jumps by
             #                    TEMPUS_PARTS_PER_WATCH × log_2(T).
             # provisional_bits:  current progress × log_2(T). Resets to zero on interruption.
@@ -286,10 +286,10 @@ def _(np):
 
             else:
                 self.parts += 1
-                self.provisional_bits = self.parts * _log_2T(p)
+                self.provisional_bits = self.parts * log_2T(p)
                 if self.parts >= TEMPUS_PARTS_PER_WATCH:
                     # watch --> information
-                    self.committed_bits += TEMPUS_PARTS_PER_WATCH * _log_2T(p)   # note that this is K for Tempus
+                    self.committed_bits += TEMPUS_PARTS_PER_WATCH * log_2T(p)   # note that this is K for Tempus
                     self.provisional_bits = 0.0
                     self.watches += 1
                     self.parts = 0
@@ -310,7 +310,7 @@ def _(np):
 
 
 
-    return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus
+    return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, log_2T
 
 
 @app.cell(hide_code=True)
@@ -382,12 +382,21 @@ def _(MAX_FRAMES, mo):
 
 
 @app.cell(hide_code=True)
-def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
+def _(
+    K,
+    TEMPUS_PARTS_PER_WATCH,
+    entropy_switch,
+    frame_slider,
+    log_2T,
+    mo,
+    probability,
+    snapshots,
+):
     f = snapshots[frame_slider.value]
     step = f['step']
     p_disp = probability
 
-    # --- Colors ---
+    # === Colors ===
     HORA_BLUE = "#4c78a8"
     HORA_ACTIVE = "#6fa8dc"
     HORA_DONE = "#2d5a8a"
@@ -404,6 +413,20 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
             f'overflow:hidden;margin:1px;vertical-align:middle;">'
             f'<div style="width:{pct}%;height:100%;background:{color};'
             f'border-radius:2px;"></div></div>'
+        )
+
+    def entropy_bar(committed, provisional, max_val, color, prov_color, w, h=10):
+        c_pct = max(0, min(100, (committed / max_val) * 100))
+        p_pct = max(0, min(100, (provisional / max_val) * 100))
+        return (
+            f'<div style="display:inline-block;width:{w}px;height:{h}px;'
+            f'background:{BAR_BG};border-radius:2px;border:1px solid #555;'
+            f'overflow:hidden;margin:1px;vertical-align:middle;position:relative;">'
+            f'<div style="width:{c_pct}%;height:100%;background:{color};'
+            f'position:absolute;left:0;top:0;"></div>'
+            f'<div style="width:{p_pct}%;height:100%;background:{prov_color};'
+            f'position:absolute;left:{c_pct}%;top:0;opacity:0.5;"></div>'
+            f'</div>'
         )
 
     def segments(filled, total, color_on, w, h=22, active_idx=-1):
@@ -425,7 +448,7 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
             return f'<span style="font-size:20px;">{"⌚" * count}</span>'
         return f'<span style="font-size:20px;">⌚ × {count}</span>'
 
-    # --- Extract Hora state ---
+    # === Extract Hora state ===
     h_parts = f['h_parts']
     h_subassemblies = f['h_subassemblies']
     h_subassemblies_ready = f['h_subassemblies_ready']
@@ -437,13 +460,13 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
     h_work_lost = f['h_work_lost']
     h_assemb = f['h_all_assemblies_completed']
 
-    # --- Extract Tempus state ---
+    # === Extract Tempus state ===
     t_parts = f['t_parts']
     t_watches = f['t_watches']
     t_interrupts = f['t_interrupts']
     t_work_lost = f['t_work_lost']
 
-    # --- Bar widths ---
+    # === Bar widths ===
     W = 600  # total bar area width
     parts_bar_w = max(60, W // 5)
     seg_bar_w = W - parts_bar_w - 140  # room for label + parts bar
@@ -458,6 +481,48 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
     parts_active = (h_working == 0)
     sub_active = (h_working == 1)
     larger_active = (h_working == 2)
+
+    # === Entropy bars (only if entropy_switch.value) ===
+    entropy_html = ""
+    if entropy_switch.value:
+        h_committed = f.get('h_committed_bits', 0)
+        h_provisional = f.get('h_provisional_bits', 0)
+        t_committed = f.get('t_committed_bits', 0)
+        t_provisional = f.get('t_provisional_bits', 0)
+
+        # Per-watch committed: modulo one watch's worth of bits
+        bits_per_hora_watch = 111 * K * log_2T(p_disp)
+        bits_per_tempus_watch = TEMPUS_PARTS_PER_WATCH * log_2T(p_disp)
+
+        h_committed_this_watch = h_committed % bits_per_hora_watch
+        t_committed_this_watch = t_committed % bits_per_tempus_watch
+
+        max_bits = max(bits_per_hora_watch, bits_per_tempus_watch)
+        full_w = seg_bar_w + parts_bar_w + 20  # match Tempus bar width
+
+        entropy_html = f"""
+        <div style="margin-top:8px;padding-top:6px;border-top:1px solid #333;">
+            <div style="font-size:10px;color:{LABEL};margin-bottom:4px;">
+                Shannon entropy (committed + provisional toward current watch)</div>
+            <div style="margin-bottom:3px;display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Hora:</span>
+                {entropy_bar(h_committed_this_watch, h_provisional, max_bits, HORA_BLUE, HORA_ACTIVE, full_w)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;">
+                    {h_committed_this_watch:.2f} + {h_provisional:.3f} bits</span>
+            </div>
+            <div style="margin-bottom:3px;display:flex;align-items:center;">
+                <span style="font-size:10px;color:{LABEL};width:130px;flex-shrink:0;">
+                    Tempus:</span>
+                {entropy_bar(t_committed_this_watch, t_provisional, max_bits, TEMPUS_RED, '#ff9999', full_w)}
+                <span style="font-size:10px;color:{LABEL};margin-left:4px;">
+                    {t_committed_this_watch:.2f} + {t_provisional:.3f} bits</span>
+            </div>
+        </div>
+        """
+
+
+
 
     html = f"""
     <div style="font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;">
@@ -546,6 +611,8 @@ def _(K, TEMPUS_PARTS_PER_WATCH, frame_slider, mo, probability, snapshots):
             </div>
         </div>
 
+        {entropy_html}
+
         <!-- STATUS -->
         <div style="margin-top:12px;font-size:10px;color:{LABEL};border-top:1px solid #333;padding-top:6px;">
             Hora: {h_interrupts:,} interrupts, ~{h_work_lost:,} parts-equiv lost,
@@ -620,7 +687,17 @@ def _(sw_form):
 
 
 @app.cell(hide_code=True)
-def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
+def _(
+    Hora,
+    K,
+    TEMPUS_PARTS_PER_WATCH,
+    Tempus,
+    entropy_switch,
+    log_2T,
+    np,
+    probability,
+    s_w,
+):
     # Simulation
     def simulate_watchmakers(probability, s_w):
         p = probability
@@ -689,6 +766,23 @@ def _(Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, np, probability, s_w):
         else:
             print(f"  Ratio:  ∞  (Tempus completed zero watches)")
         print(f"  Expected ratio: {tempus_expected / hora_expected:.0f}x")
+
+        # === Shannon entropy summary (if entropy switch is on) ===
+        if entropy_switch.value:
+            log2T = log_2T(p)
+            bits_per_hora_watch = 111 * K * log2T
+            bits_per_tempus_watch = TEMPUS_PARTS_PER_WATCH * log2T
+            print()
+            print(f"Shannon entropy (H(k) = k·log₂(T), where T = 1/(1-p) = {T:.6f}):")
+            print(f"  log₂(T) = {log2T:.6f} bits per step")
+            print(f"  Hora commits per ratchet:  K·log₂(T) = {K * log2T:.4f} bits")
+            print(f"  Hora total per watch:      111 × {K * log2T:.4f} = {bits_per_hora_watch:.4f} bits")
+            print(f"  Tempus total per watch:    1000 × {log2T:.6f} = {bits_per_tempus_watch:.4f} bits")
+            print()
+            print(f"  Hora committed:   {hora.committed_bits:.1f} bits across {hora.watches} watches")
+            print(f"    Avg per watch:  {hora.committed_bits / hora.watches:.4f}  (expected: {bits_per_hora_watch:.4f})")
+            print(f"  Tempus committed: {tempus.committed_bits:.1f} bits across {tempus.watches} watches")
+            print(f"    Provisional:    {tempus.provisional_bits:.4f} bits (in progress, not yet banked)")
 
     simulate_watchmakers(probability, s_w)
     return
@@ -767,15 +861,32 @@ def _(mo):
 def _(mo):
     entropy_switch = mo.ui.switch(label="Turn on Entropy Calculations")
     entropy_switch
-    return
+    return (entropy_switch,)
 
 
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    Once these calculations are enabled, we can see from our simulation tools that the entropy difference between Tempus and Hora is massive. Unlike in Simon's biological example of a single-celled organism, the information generated by Hora's workshop swamps the condition of the entire system, so that Tempus might be out of business before his first lunch break. Trivializing this condition does a disservice to the parable.
+
     ## Discussion
 
-    [MORE TO DO]
+
+    Let us expand our story to explicitly account for Hora's competitive advantage; to do this, we introduce Secunda. Imagine our story is as such:
+
+    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda: who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+    >
+    > That is to say, he and his daughter did.
+
+
+    ### [Work-in-progress: Considering Secunda as an entropy-reducing, causality dominant entity]
+
+
+
+
+
+
+
 
     Simon may be sufficiently unimpeachable in his conversion of the parable to biology, but there is an insufficiency nonetheless: his ten thousand citations are from nearly every avenue of science, including many that that investigate human social systems far more closely attuned to cottage industries than a multicellular sponge in a tide pool could be.
     """)
