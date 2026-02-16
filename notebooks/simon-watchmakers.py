@@ -29,7 +29,11 @@ def _(mo):
 
     *[Peter Dresslar](https://github.com/peterdresslar), 2026*
 
-    ...
+    ## Abstract
+
+    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable's applicability to real systems depends on a quantity the model does not address.
+
+    ## Introduction
 
     Herbert Simon's [*The Architecture of Complexity*](https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31) (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers—Hora and Tempus—along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.
 
@@ -858,7 +862,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(mo):
     entropy_switch = mo.ui.switch(label="Turn on Entropy Calculations")
     entropy_switch
@@ -873,7 +877,7 @@ def _(mo):
     - Hora is getting the assemblage of modules for free, a tribute to his cunning design prowess. Once he has ten elements ready they are immediately joined, interlocking by merit of superb design alone.
     - Hora has help.
 
-    As we think back to Simon's explanation, it seems somewhat clear that the first of these possibilities is what is intended by the story. The prose does not mention any specific activity of macro-assembly except the gathering of the ten elements. And, as Simon explains, this story is primarily intended as a metaphor, and in terrestrial biology extra energy, via solar radiance, is practically free. In fact, in the case of biology it is possible to imagine chemistries---Kauffman's autocatalytic sets come to mind(^11)---where the assembly of sets is indeed approximately free, for instance in a case where greater stability from combination serves as the "glue" keeping composites joined. Perhaps this is what Simon is considering in his story.
+    As we think back to Simon's explanation, it seems somewhat clear that the first of these possibilities is what is intended by the story. The prose does not mention any specific activity of macro-assembly except the gathering of the ten elements. And, as Simon explains, this story is primarily intended as a metaphor, and in terrestrial biology extra energy, via solar radiance, is practically free. In fact, in the case of biology it is possible to imagine chemistries---Kauffman's recent autocatalytic sets come to mind (2025)---where the assembly of sets is indeed approximately free, for instance in a case where greater stability from combination serves as the "glue" keeping composites joined. Perhaps this is what Simon is considering in his story.
 
     However, there is a problem with this, one that becomes clear when trying to build a software class for Hora: in this case, the number of subassembly steps, 111, would be wrong in that case.
 
@@ -931,7 +935,7 @@ def _(mo):
 
     The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
 
-    It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is $p$. Then the probability that Tempus can complete a watch he has started without interruption is $(1-p)^{1000}$—a very small number unless $p$ is .001 or less. Each interruption will cost, on the average, the time to assemble $1/p$ parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is $(1-p)^{10}$, and each interruption will cost only about the time required to assemble five parts.[^7]
+    It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is $p$. Then the probability that Tempus can complete a watch he has started without interruption is $(1-p)^{1000}$—a very small number unless $p$ is .001 or less. Each interruption will cost, on the average, the time to assemble $1/p$ parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is $(1-p)^{10}$, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]
 
     Now if $p$ is about .01—that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly—then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.
 
@@ -959,6 +963,16 @@ def _(mo):
     [Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: "[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]"]
 
     ### References
+
+    Kauffman, S., & Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. https://doi.org/10.1098/rstb.2024.0283
+
+    Rivelli, L. (2025). Modularity in biological thought: Sketch of a unifying theoretical framework. BioSystems, 250, 105430. https://doi.org/10.1016/j.biosystems.2025.105430
+
+    Simon, H. A. (1962). The architecture of complexity. Proceedings of the American Philosophical Society, 106(6), 467–482. https://www.jstor.org/stable/985254
+
+    Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. https://web.mit.edu/saltzer/www/publications/recguides/Simon.html
+
+    Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515–542. https://doi.org/10.1007/BF00869285
     """)
     return
 
