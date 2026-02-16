@@ -92,13 +92,15 @@ def _(mo):
     mo.md(r"""
     ## Core Classes
 
-    These are the implementing classes for both watchmakers. They will say hello.
+    These are the implementing classes for both watchmakers.
     """)
     return
 
 
 @app.cell(hide_code=True)
 def _(np):
+    # Hora and Tempus
+
     HORA_PARTS_PER_SUB = 10           # Number of parts for each Hora component
     K = HORA_PARTS_PER_SUB            # Shorter version of that, matches Saltzer 1999
     TEMPUS_PARTS_PER_WATCH = 1000     # Poor Tempus
@@ -308,18 +310,11 @@ def _(np):
                 'provisional_bits': self.provisional_bits,
             }
 
-
-
-    return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, log_2T
-
-
-@app.cell(hide_code=True)
-def _(Hora, Tempus):
     t = Tempus()
     h = Hora()
-    print(f"Hello, I am {t.name}, a linear watchmaker.")
-    print(f"Hello, I am {h.name}, a modular watchmaker.")
-    return
+    print(f"Hello, I am {t.name}, a Python implementation of a linear watchmaker.")
+    print(f"Hello, I am {h.name}, a Python implementation of a modular watchmaker.")
+    return Hora, K, TEMPUS_PARTS_PER_WATCH, Tempus, log_2T
 
 
 @app.cell(hide_code=True)
@@ -791,11 +786,13 @@ def _(
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that in fact there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when $p = .01$.
+    Note that the outcomes will assuredly approach the target ratio of 1974 when the simulation is run with more cycles, as can be adjusted, above. The cost of this is a longer run-time. Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when $p = .01$.
 
-    Yet, despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone.
+    Despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone. In fact, a quick inquiry to modern AI chatbots about Simon's watchmakers will often get a response with the same incorrect result.
 
-    But the quantitative correction may be the lesser finding. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.
+    Regardless of the uncomfortable situation of an incorrect value being cited in (likely) hundreds of referreed articles for the better part of a century, the model appears to generally work to reinforce the concepts for which it was designed. If our system is only 2000 times as efficient, rather than 4000, what does that matter? Better is better, and 2000x is way better.
+
+    It turns out, however, that this is not the only problem with the parable of the watchmakers. Math might be the least of the worries. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.
     """)
     return
 
@@ -886,20 +883,25 @@ def _(mo):
 
     ## Hora's helper, Secunda
 
-    Let us expand our story to explicitly account for Hora's competitive advantage; to do this, we introduce Secunda. Imagine our story is as such:
+    Let us expand our story to explicitly account for Hora's competitive advantage. To do this, we introduce Secunda. For example:
 
-    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda: who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda—who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
     >
     > That is to say, he and his daughter did.
 
+    Now our story rings a bit more true, but it is still just a story, or an analogy. What can we know about Secunda, and how can she inform us about modularity in complex systems?
+
+    It would be trivially easy to implement Secunda in code using a flat cost per watch, or we might conceive of a tiered system of arbitrary values. In fact, in one manner, Secunda *already exists* in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!
+
+    But, none of the actual code cost or modeled cost or whatever other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.
+
+    ---
+
+    ## WIP: Secunda, causal dominance, and meaning
 
 
 
-
-
-
-
-
+    ---
 
     Simon may be sufficiently unimpeachable in his conversion of the parable to biology, but there is an insufficiency nonetheless: his ten thousand citations are from nearly every avenue of science, including many that that investigate human social systems far more closely attuned to cottage industries than a multicellular sponge in a tide pool could be.
     """)
@@ -909,7 +911,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Prose and References
+    ## Appendix
 
     For reference, here is the complete prose of Simon watchmakers story (p. 470):
 
@@ -938,9 +940,17 @@ def _(mo):
 
     ---
 
-    [Footnote 7 from the Simon passage, about which Saltzer says:  ... This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that "each interruption will cost only about the time to assemble five parts" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.]
+    ### Notes
+
+    [Footnote 7 from the Simon passage, about which Saltzer says:  ...
+
+    > This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that "each interruption will cost only about the time to assemble five parts" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.
+
+    ]
 
     [Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: "[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]"]
+
+    ### References
     """)
     return
 
