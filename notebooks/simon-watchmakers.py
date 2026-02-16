@@ -98,16 +98,22 @@ def _(mo):
 
 
 @app.cell(hide_code=True)
-def _():
+def _(np):
     HORA_PARTS_PER_SUB = 10           # Number of parts for each Hora component
     K = HORA_PARTS_PER_SUB            # Shorter version of that, matches Saltzer 1999
     TEMPUS_PARTS_PER_WATCH = 1000     # Poor Tempus
+
+    def _log_2T(p):
+        return np.log2(1 / (1 - p))   # our "constant" information function
+                                      # returns bits per step (remains constant WRT p)
 
     class Hora:
         """Hora the watchmaker: builder of modular watches.
 
         State tracks progress at three levels, plus inventory of completed
         pieces waiting to be joined at the next level up.
+
+        There is a model problem, here, but we have kept it in order to match with published verifying sources.
         """
 
         def __init__(self):
@@ -138,6 +144,22 @@ def _():
             self.all_assemblies_completed = 0       # assemblies at any level, about which Simon says: 
                                                     # "Hora has to complete one hundred eleven subassemblies of ten parts each"
 
+            # --- Shannon entropy states ---
+            # From the prose:
+            # I = -log_2(P_k) = -log_2(T^(-k)) = k * log_2(T)
+            # where 
+            # T = 1/(1-p)
+            # and k is our K, or HORA_PARTS_PER_SUB
+            #
+            # committed_bits:    permanently banked, immune to interruption.
+            #                    increases by K*log_2(T) each time any assembly of K steps completes. 
+            #                    Entirely atributable to "Secunda" (see prose)
+            #
+            # provisional_bits:  current progress that would be lost on interruption.
+            #                    equals (the return of) _get_progress() · log_2(T) at the active level.
+            self.committed_bits = 0.0
+            self.provisional_bits = 0.0
+
         def _get_progress(self):
             """Return current progress at the active level."""
             if self.currently_working_on == 0:
@@ -156,27 +178,35 @@ def _():
             else:
                 self.larger_subs = value
 
+        def _bank_bits(self, p):
+            self.committed_bits += K * _log_2T(p)
+            self.provisional_bits = 0.0
+
         def step(self, rng, p):
             self.total_steps += 1
             level = self.currently_working_on
 
             if rng.random() < p:
-                # Interrupted — lose current level's progress
+                # Interrupted — lose current level's progress. Banked progress is safe.
                 self.interrupts += 1
                 progress = self._get_progress()
                 self.work_lost += progress * (K ** level)
                 self._set_progress(0)
-                # Stay at this level — the pieces below are safe,
-                # we just need to redo this assembly.
+
+                self.provisional_bits = 0.0  # provisional information is lost.
 
             else:
                 # Successful step
-                self._set_progress(self._get_progress() + 1)
-
+                new_progress = (self._get_progress() + 1)
+                self._set_progress(new_progress)
+                self.provisional_bits = new_progress * _log_2T(p)
+            
                 if self._get_progress() >= K:
                     # Assembly complete at this level
                     self._set_progress(0)
                     self.all_assemblies_completed += 1   # no matter the level, track an assembly to all_assemblies
+
+                    self._bank_bits(p)   # Bank the entropy
 
                     if level == 0:
                         # subassembly complete
@@ -218,6 +248,8 @@ def _():
                 'work_lost': self.work_lost,
                 'total_steps': self.total_steps,
                 'all_assemblies_completed': self.all_assemblies_completed,
+                'committed_bits': self.committed_bits,
+                'provisional_bits': self.provisional_bits,
             }
 
     class Tempus:
@@ -235,6 +267,13 @@ def _():
             self.work_lost = 0      # parts lost to interruptions
             self.total_steps = 0        
 
+            # --- Shannon entropy tracking ---
+            # committed_bits:    zero until a watch finishes, then jumps by
+            #                    TEMPUS_PARTS_PER_WATCH × log_2(T).
+            # provisional_bits:  current progress × log_2(T). Resets to zero on interruption.
+            self.committed_bits = 0.0
+            self.provisional_bits = 0.0
+
         def step(self, rng, p):
             self.total_steps += 1
 
@@ -243,9 +282,15 @@ def _():
                 self.interrupts += 1
                 self.work_lost += self.parts
                 self.parts = 0
+                self.provisional_bits = 0.0     # all provisional information lost
+
             else:
                 self.parts += 1
+                self.provisional_bits = self.parts * _log_2T(p)
                 if self.parts >= TEMPUS_PARTS_PER_WATCH:
+                    # watch --> information
+                    self.committed_bits += TEMPUS_PARTS_PER_WATCH * _log_2T(p)   # note that this is K for Tempus
+                    self.provisional_bits = 0.0
                     self.watches += 1
                     self.parts = 0
 
@@ -259,6 +304,8 @@ def _():
                 'interrupts': self.interrupts,
                 'work_lost': self.work_lost,
                 'total_steps': self.total_steps,
+                'committed_bits': self.committed_bits,
+                'provisional_bits': self.provisional_bits,
             }
 
 
@@ -711,8 +758,15 @@ def _(mo):
 
     These steps can be reviewed and verified through our modeling efforts.
 
-    Checking the box below will adjust both the visualization and the simulation in this notebook to also compute Shannon entropy.
+    Toggling the switch below will adjust both the visualization and the simulation in this notebook to also compute Shannon entropy.
     """)
+    return
+
+
+@app.cell
+def _(mo):
+    entropy_switch = mo.ui.switch(label="Turn on Entropy Calculations")
+    entropy_switch
     return
 
 
