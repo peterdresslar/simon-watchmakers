@@ -1,4 +1,4 @@
-# Simon Watchmakers
+# Simon's Watchmakers: Tempus, Hora, and Secunda
 
 A [marimo](https://marimo.io) notebook project investigating the story of Tempus and Hora from Simon's *The Architecture of Complexity*, 1962. 
 
