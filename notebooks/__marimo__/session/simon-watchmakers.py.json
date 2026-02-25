@@ -5,19 +5,6 @@
   },
   "cells": [
     {
-      "id": "Hbol",
-      "code_hash": "6e2a0c16254ec479a9783ce170013110",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "MJUe",
       "code_hash": "7ec16d8e30b7eeadd466f33b41d6b2a7",
       "outputs": [
@@ -32,12 +19,12 @@
     },
     {
       "id": "vblA",
-      "code_hash": "de273724d2f9a82b071697e27458e772",
+      "code_hash": "ec407bc845261a91dbdec7c9694197d1",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"simons-watchmakers-tempus-hora-and-secunda\">Simon's Watchmakers: Tempus, Hora, and Secunda</h1>\n<span class=\"paragraph\"><em><a href=\"https://github.com/peterdresslar\" rel=\"noopener noreferrer\" target=\"_blank\">Peter Dresslar</a>, 2026</em></span>\n<h2 id=\"abstract\">Abstract</h2>\n<span class=\"paragraph\">Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent\u2014here called Secunda\u2014who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable's applicability to real systems depends on a quantity the model does not address.</span>\n<h2 id=\"introduction\">Introduction</h2>\n<span class=\"paragraph\">Herbert Simon's <a href=\"https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31\" rel=\"noopener noreferrer\" target=\"_blank\"><em>The Architecture of Complexity</em></a> (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers\u2014Hora and Tempus\u2014along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.</span>\n<span class=\"paragraph\">Simon's parable begins (with some editing):</span>\n<blockquote>\n<span class=\"paragraph\">There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently... However, Hora prospered, while Tempus lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1000 parts each. <strong>Tempus</strong> had so constructed his so that if he had one partly assembled and had to put it down\u2014to answer the phone say\u2014it immediately fell to pieces...</span>\n<span class=\"paragraph\"><strong>Hora</strong> had designed them so that he could put together subassemblies of ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter constituted the whole watch. Hence, when Hora had to... answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the hours it took Tempus.</span>\n</blockquote></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"simons-watchmakers-tempus-hora-and-secunda\">Simon's Watchmakers: Tempus, Hora, and Secunda</h1>\n<span class=\"paragraph\"><em><a href=\"https://github.com/peterdresslar\" rel=\"noopener noreferrer\" target=\"_blank\">Peter Dresslar</a>, 2026</em></span>\n<h2 id=\"abstract\">Abstract</h2>\n<span class=\"paragraph\">Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent\u2014here called Secunda\u2014who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable is in fact silent on the benefit of modularity for a given complex system. </span>\n<h2 id=\"introduction\">Introduction</h2>\n<span class=\"paragraph\">Herbert Simon's <a href=\"https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31\" rel=\"noopener noreferrer\" target=\"_blank\"><em>The Architecture of Complexity</em></a> (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers\u2014Hora and Tempus\u2014along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.</span>\n<span class=\"paragraph\">Simon's parable begins (with some editing):</span>\n<blockquote>\n<span class=\"paragraph\">There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently... However, Hora prospered, while Tempus lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1000 parts each. <strong>Tempus</strong> had so constructed his so that if he had one partly assembled and had to put it down\u2014to answer the phone say\u2014it immediately fell to pieces...</span>\n<span class=\"paragraph\"><strong>Hora</strong> had designed them so that he could put together subassemblies of ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter constituted the whole watch. Hence, when Hora had to... answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the hours it took Tempus.</span>\n</blockquote></span>"
           }
         }
       ],
@@ -83,39 +70,6 @@
       "console": []
     },
     {
-      "id": "Xref",
-      "code_hash": "76edb0cfc988a85922b5736857410892",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='Xref-2' random-id='2d6b2515-062d-e253-2f8a-665714b7dffe'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;Xref-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='Xref-1' random-id='879ae8d2-8544-b4f2-6700-83c1eade3331'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Update probability p. Press submit to process updates&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "SFPL",
-      "code_hash": "27696f754c9d96d152e3715f3d4ac880",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Probability p of an interruption: 0.01\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
       "id": "BYtC",
       "code_hash": "a2567a64fce083431f922c4c67e75ee3",
       "outputs": [
@@ -129,27 +83,7 @@
       "console": []
     },
     {
-      "id": "RGSE",
-      "code_hash": "a3e53a7e610d86c7fd77c62f99237026",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Hello, I am Tempus, a Python implementation of a linear watchmaker.\nHello, I am Hora, a Python implementation of a modular watchmaker.\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "emfo",
+      "id": "Kclp",
       "code_hash": "ae2f6f68d4c1a5c7e45d7e8bb01e74fb",
       "outputs": [
         {
@@ -162,53 +96,7 @@
       "console": []
     },
     {
-      "id": "Hstk",
-      "code_hash": "433e40e97db708cb15d6cc43569723a8",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Visualization data ready.\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "nWHF",
-      "code_hash": "c5222193c2333015b6adc8c2dfb0d7cc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='nWHF-0' random-id='d7e272d2-8904-5415-c9c6-4d1ede486bff'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Use this control to scrub through visualization data (Note that the notebook cells must first be run).&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='999999' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "iLit",
-      "code_hash": "37fec13614009b93b004617da244adfc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n<div style=\"font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;\">\n\n    <div style=\"font-size:11px;color:#999;margin-bottom:12px;\">\n        Step <b>319,870</b> &nbsp;|&nbsp; p = 0.01\n        &nbsp;|&nbsp; Frame 63,974 / 1,000,000\n    </div>\n\n    <!-- HORA -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#4c78a8;margin-bottom:8px;\">\n            HORA\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                10 \u00d7 10 \u00d7 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch\n            </span>\n        </div>\n\n        <!-- Row 1: subassemblies_ready + current parts progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Subassemblies:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:2px solid #6fa8dc;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #6fa8dc;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:80.0%;height:100%;background:#6fa8dc;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                8/10</span>\n        </div>\n\n        <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Larger subs:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#2d5a8a;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 3: assembly (watch) progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Watch assembly:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n    </div>\n\n    <!-- TEMPUS -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#e45756;margin-bottom:8px;\">\n            TEMPUS\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                1000 parts, one long chain\n            </span>\n        </div>\n\n        <div style=\"display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Progress:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #e45756;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:17.599999999999998%;height:100%;background:#e45756;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:55px;\">\n                176/1000</span>\n        </div>\n    </div>\n\n    <!-- WATCH OUTPUT -->\n    <div style=\"display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;\">\n        <div>\n            <div style=\"font-size:12px;color:#4c78a8;margin-bottom:4px;font-weight:bold;\">\n                Hora's watches</div>\n            <span style=\"font-size:20px;\">\u231a \u00d7 272</span>\n        </div>\n        <div>\n            <div style=\"font-size:12px;color:#e45756;margin-bottom:4px;font-weight:bold;\">\n                Tempus's watches</div>\n            <span style=\"color:#555;font-size:24px;\">\u2014</span>\n        </div>\n    </div>\n\n    \n\n    <!-- STATUS -->\n    <div style=\"margin-top:12px;font-size:10px;color:#999;border-top:1px solid #333;padding-top:6px;\">\n        Hora: 3,182 interrupts, ~36,167 parts-equiv lost,\n        30,286 assemblies completed,\n        working on level 0\n        &nbsp;|&nbsp;\n        Tempus: 3,227 interrupts, 316,467 parts lost\n    </div>\n\n</div>\n"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ZHCJ",
       "code_hash": "dc3d14d94188e4101e9babd3b1ebdf87",
       "outputs": [
         {
@@ -221,73 +109,20 @@
       "console": []
     },
     {
-      "id": "ROlb",
-      "code_hash": "e5018254cebd16b02d0e3c957346de25",
+      "id": "TqIu",
+      "code_hash": "94b640e8a0a962e68659ed3e605e3ccd",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='ROlb-2' random-id='02361fb3-757f-18bf-1dfb-a31485d023ee'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;ROlb-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='ROlb-1' random-id='83db857d-f369-d162-fd5b-f9f8f36c9122'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='3' data-step='1' data-steps='[1000,10000,100000,1000000]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Note that the outcomes will assuredly approach the target ratio of 1974 when the simulation is run with more cycles, as can be adjusted, above. The cost of this is a longer run-time. Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when <marimo-tex class=\"arithmatex\">||(p = .01||)</marimo-tex>.</span>\n<span class=\"paragraph\">Despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone. In fact, a quick inquiry to modern AI chatbots about Simon's watchmakers will often get a response with the same incorrect result.</span>\n<span class=\"paragraph\">Regardless of the uncomfortable situation of an incorrect value being cited in (likely) hundreds of referreed articles for the better part of a century, the model appears to generally work to reinforce the concepts for which it was designed. If our system is only 2000 times as efficient, rather than 4000, what does that matter? Better is better, and 2000x is way better.</span>\n<span class=\"paragraph\">It turns out, however, that this is not the only problem with the parable of the watchmakers. Math might be the least of the worries. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.</span></span>"
           }
         }
       ],
       "console": []
-    },
-    {
-      "id": "qnkX",
-      "code_hash": "2cc2c5dd66e8522939b01d90e68ce8af",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Number of watches to be simulated: 10000\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "TqIu",
-      "code_hash": "0a59ac715c676f8ede2e78e9f32fd192",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\n\nHora: 10000 watches in 11,734,994 steps\n  Avg steps/watch:      1173.5  (expected: 1173.6)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  Successful  Sim/Analytical = 0.9999\n\nTempus: 2 watches in 11,734,994 steps\n  Avg steps/watch: 5867497.0  (expected: 2316256.5)\n  Interrupts: 117,625\n  Work lost:  11,615,336 parts\n  Best progress: (not tracked, but expected ~100 parts before reset)\n\nIn 11,734,994 steps:\n  Hora:   10000 watches\n  Tempus: 2 watches\n  Ratio:  5000x\n  Expected ratio: 1974x\n",
-          "mimetype": "text/plain"
-        }
-      ]
     },
     {
       "id": "Vxnm",
-      "code_hash": "f6287e042086f5b1d9b5403548ae2f26",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Note that the outcomes will assuredly approach the target ratio of 1974 when the simulation is run with more cycles, as can be adjusted, above. The cost of this is a longer run-time. Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when <marimo-tex class=\"arithmatex\">||(p = .01||)</marimo-tex>. </span>\n<span class=\"paragraph\">Despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone. In fact, a quick inquiry to modern AI chatbots about Simon's watchmakers will often get a response with the same incorrect result.</span>\n<span class=\"paragraph\">Regardless of the uncomfortable situation of an incorrect value being cited in (likely) hundreds of referreed articles for the better part of a century, the model appears to generally work to reinforce the concepts for which it was designed. If our system is only 2000 times as efficient, rather than 4000, what does that matter? Better is better, and 2000x is way better.</span>\n<span class=\"paragraph\">It turns out, however, that this is not the only problem with the parable of the watchmakers. Math might be the least of the worries. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "DnEU",
       "code_hash": "852a21d415861db131e3aa532fba03c9",
       "outputs": [
         {
@@ -301,25 +136,12 @@
     },
     {
       "id": "ulZA",
-      "code_hash": "9352b1a9892b352129063ec8425c45d2",
+      "code_hash": "1fdb901733f2e4cb306b42e623716a3f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<marimo-ui-element object-id='ulZA-0' random-id='74914ca0-bd7b-1557-0f46-e60af578fd1b'><marimo-switch data-initial-value='false' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Turn on Entropy Calculations&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-switch></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ecfG",
-      "code_hash": "82bf695ecb12c9662069db019a8f3d66",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Once these calculations are enabled, we can see from our simulation tools that the entropy difference between Tempus and Hora is massive. Each watch is made with exactly 1000 parts, and yet the gap exists. We know for certain that information is created every time one of Hora's subassemblies is made ready and, in particular, made invulnerable to interruption. How can this happen? There are two possibilities: </span>\n<ul>\n<li>Hora is getting the assemblage of modules for free, a tribute to his cunning design prowess. Once he has ten elements ready they are immediately joined, interlocking by merit of superb design alone.</li>\n<li>Hora has help.</li>\n</ul>\n<span class=\"paragraph\">As we think back to Simon's explanation, it seems somewhat clear that the first of these possibilities is what is intended by the story. The prose does not mention any specific activity of macro-assembly except the gathering of the ten elements. And, as Simon explains, this story is primarily intended as a metaphor, and in terrestrial biology extra energy, via solar radiance, is practically free. In fact, in the case of biology it is possible to imagine chemistries---Kauffman's recent autocatalytic sets come to mind (2025)---where the assembly of sets is indeed approximately free, for instance in a case where greater stability from combination serves as the \"glue\" keeping composites joined. Perhaps this is what Simon is considering in his story.</span>\n<span class=\"paragraph\">However, there is a problem with this, one that becomes clear when trying to build a software class for Hora: in this case, the number of subassembly steps, 111, would be wrong in that case.</span>\n<span class=\"paragraph\">Consider our case with free-energy, zero-effort, automatic subassembly creation. These qualities also imply: zero time. What that means is that when the tenth element is created, the subassembly immediately exists. So too, necessarily, when the tenth subassembly is created, the larger assembly exists. And then of course when the tenth larger assembly is created, we have a watch. </span>\n<span class=\"paragraph\">What this implies, though, is an immediate, automatic cascade of assemblies from the lowest tier to the highest. Just as all the digits on a digital clock turn at once from 9:59 to 10:00, so too does the last subassembly imply the last larger assembly imply the watch. The cascading effect means 100 of these events, not 111.</span>\n<span class=\"paragraph\">Of course, a story in which the last subcomponent immediately becomes the watch is so unrealistic as to be difficult to tell in prose. So, even though Simon commits to the idea of \"free energy\" in the footnote, the story he believes he is communicating about the watchmakers, to him, naturally has a hierarchy of events rather than a cascade of them. The prose may not explicitly communicate this, but the math he presents does. He communicates 111 subassembly events.</span>\n<span class=\"paragraph\">Hora must have help.</span>\n<h2 id=\"horas-helper-secunda\">Hora's helper, Secunda</h2>\n<span class=\"paragraph\">Let us expand our story to explicitly account for Hora's competitive advantage. To do this, we introduce Secunda. For example:</span>\n<blockquote>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda\u2014who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">That is to say, he and his daughter did.</span>\n</blockquote>\n<span class=\"paragraph\">Now our story rings a bit more true, but it is still just a story, or an analogy. What can we know about Secunda, and how can she inform us about modularity in complex systems?</span>\n<span class=\"paragraph\">It would be trivially easy to implement Secunda in code using a flat cost per watch, or we might conceive of a tiered system of arbitrary values. In fact, in one manner, Secunda <em>already exists</em> in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!</span>\n<span class=\"paragraph\">But, none of the actual code cost or modeled cost or whatever other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.</span>\n<hr />\n<h2 id=\"wip-secunda-causal-dominance-and-meaning\">WIP: Secunda, causal dominance, and meaning</h2>\n<hr />\n<span class=\"paragraph\">Herbert Simon was a titan of Twentieth Century complexity theory, and an extrordinary general contributor during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.</span>\n<span class=\"paragraph\">There is, nonetheless, an insufficiency in the work: and the importance of this insufficiency is magnified by the its astonishingly wide adoption. The works citing <em>Architecure</em> span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper. </span>\n<span class=\"paragraph\">One wonders if those authors, beyond the tricky task of catching the corrections of the math in later publications, have been entirely attuned in all cases to the importance of entropy to the system---if they have in each case thought to identify the Secundas to their Horas, and figured how to properly apply and quantify them. This seems a question that could be addressed rigorously and quantitatively through further investigation. With 10,000 papers and counting, the significance of the answer is potentially high.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Once these calculations are enabled, we can see from our simulation tools that the entropy difference between Tempus and Hora is massive. Each watch is made with exactly 1000 parts, and yet the gap exists. We know for certain that information is created every time one of Hora's subassemblies is made ready and, in particular, made invulnerable to interruption. How can this happen? There are two possibilities:</span>\n<ul>\n<li>Hora is getting the assemblage of modules for free, a tribute to his cunning design prowess. Once he has ten elements ready they are immediately joined, interlocking by merit of superb design alone.</li>\n<li>Hora has help.</li>\n</ul>\n<span class=\"paragraph\">As we think back to Simon's explanation, it seems somewhat clear that the first of these possibilities is what is intended by the story. The prose does not mention any specific activity of macro-assembly except the gathering of the ten elements. And, as Simon explains, this story is primarily intended as a metaphor, and in terrestrial biology extra energy, via solar radiance, is practically free. In fact, in the case of biology it is possible to imagine chemistries---Kauffman's recent autocatalytic sets come to mind (2025)---where the assembly of sets is indeed approximately free, for instance in a case where greater stability from combination serves as the \"glue\" keeping composites joined. Perhaps this is what Simon is considering in his story.</span>\n<span class=\"paragraph\">However, there is a problem with this, one that becomes clear when trying to build a software class for Hora: in this case, the number of subassembly steps, 111, would be wrong in that case.</span>\n<span class=\"paragraph\">Consider our case with free-energy, zero-effort, automatic subassembly creation. These qualities also imply: zero time. What that means is that when the tenth element is created, the subassembly immediately exists. So too, necessarily, when the tenth subassembly is created, the larger assembly exists. And then of course when the tenth larger assembly is created, we have a watch.</span>\n<span class=\"paragraph\">What this implies, though, is an immediate, automatic cascade of assemblies from the lowest tier to the highest. Just as all the digits on a digital clock turn at once from 9:59 to 10:00, so too does the last subassembly imply the last larger assembly imply the watch. The cascading effect means 100 of these events, not 111.</span>\n<span class=\"paragraph\">Of course, a story in which the last subcomponent immediately becomes the watch is so unrealistic as to be difficult to tell in prose. So, even though Simon commits to the idea of \"free energy\" in the footnote, the story he believes he is communicating about the watchmakers, to him, naturally has a hierarchy of events rather than a cascade of them. The prose may not explicitly communicate this, but the math he presents does. He communicates 111 subassembly events.</span>\n<span class=\"paragraph\">Hora must have help.</span>\n<h2 id=\"horas-helper-secunda\">Hora's helper, Secunda</h2>\n<span class=\"paragraph\">Let us expand our story to explicitly account for Hora's competitive advantage. To do this, we introduce Secunda. For example:</span>\n<blockquote>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda\u2014who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">That is to say, he and his daughter did.</span>\n</blockquote>\n<span class=\"paragraph\">Now our story rings a bit more true, but it is still just a story, or an analogy. What can we know about Secunda, and how can she inform us about modularity in complex systems?</span>\n<span class=\"paragraph\">It would be trivially easy to implement Secunda in code using a flat cost per watch, or we might conceive of a tiered system of arbitrary values. In fact, in one manner, Secunda <em>already exists</em> in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!</span>\n<span class=\"paragraph\">But, none of the actual code cost or modeled cost or any other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.</span></span>"
           }
         }
       ],
@@ -327,12 +149,111 @@
     },
     {
       "id": "Pvdt",
-      "code_hash": "0b02e0a44b26236b5c83b4030fa2f984",
+      "code_hash": "47005ba6564a1cfc1aed91f6893af4aa",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"appendix\">Appendix</h2>\n<span class=\"paragraph\">For reference, here is the complete prose of Simon watchmakers story (p. 470):</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus; but,</li>\n<li>Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex><hr />\n<h3 id=\"notes\">Notes</h3>\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ... </span>\n<blockquote>\n<span class=\"paragraph\">This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.</span>\n</blockquote>\n<span class=\"paragraph\">]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span>\n<h3 id=\"references\">References</h3>\n<span class=\"paragraph\">Kauffman, S., &amp; Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. <a href=\"https://doi.org/10.1098/rstb.2024.0283\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1098/rstb.2024.0283</a></span>\n<span class=\"paragraph\">Rivelli, L. (2025). Modularity in biological thought: Sketch of a unifying theoretical framework. BioSystems, 250, 105430. <a href=\"https://doi.org/10.1016/j.biosystems.2025.105430\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1016/j.biosystems.2025.105430</a></span>\n<span class=\"paragraph\">Simon, H. A. (1962). The architecture of complexity. Proceedings of the American Philosophical Society, 106(6), 467\u2013482. <a href=\"https://www.jstor.org/stable/985254\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.jstor.org/stable/985254</a></span>\n<span class=\"paragraph\">Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. <a href=\"https://web.mit.edu/saltzer/www/publications/recguides/Simon.html\" rel=\"noopener noreferrer\" target=\"_blank\">https://web.mit.edu/saltzer/www/publications/recguides/Simon.html</a></span>\n<span class=\"paragraph\">Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515\u2013542. <a href=\"https://doi.org/10.1007/BF00869285\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1007/BF00869285</a></span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"conclusion\">Conclusion</h2>\n<span class=\"paragraph\">Herbert Simon was a titan of Twentieth Century complexity theory, and an extrordinary general contributor during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.</span>\n<span class=\"paragraph\">There is nonetheless a flaw in the work: the importance of this flaw is magnified by the its astonishingly wide adoption. The works citing <em>Architecure</em> span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.</span>\n<span class=\"paragraph\">One wonders if those authors, beyond the tricky task of catching the corrections of the math in later publications, have been entirely attuned in all cases to the importance of entropy to the system---if they have in each case thought to identify the Secundas to their Horas, and figured how to properly apply and quantify them. This seems a question that could be addressed rigorously and quantitatively through further investigation. With 10,000 papers and counting, the significance of the answer is potentially high.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "da0bd675181a597a06f0bbe9224d8240",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"appendix\">Appendix</h2>\n<span class=\"paragraph\">For reference, here is the complete prose of Simon watchmakers story (p. 470):</span>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:</span>\n<ol>\n<li>Hora must make 111 times as many complete assemblies per watch as Tempus; but,</li>\n<li>Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,</li>\n<li>Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</li>\n</ol>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex><hr />\n<h3 id=\"notes\">Notes</h3>\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ...</span>\n<blockquote>\n<span class=\"paragraph\">This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.</span>\n</blockquote>\n<span class=\"paragraph\">]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span>\n<h3 id=\"references\">References</h3>\n<span class=\"paragraph\">Kauffman, S., &amp; Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. <a href=\"https://doi.org/10.1098/rstb.2024.0283\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1098/rstb.2024.0283</a></span>\n<span class=\"paragraph\">Rivelli, L. (2025). Modularity in biological thought: Sketch of a unifying theoretical framework. BioSystems, 250, 105430. <a href=\"https://doi.org/10.1016/j.biosystems.2025.105430\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1016/j.biosystems.2025.105430</a></span>\n<span class=\"paragraph\">Simon, H. A. (1962). The architecture of complexity. Proceedings of the American Philosophical Society, 106(6), 467\u2013482. <a href=\"https://www.jstor.org/stable/985254\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.jstor.org/stable/985254</a></span>\n<span class=\"paragraph\">Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. <a href=\"https://web.mit.edu/saltzer/www/publications/recguides/Simon.html\" rel=\"noopener noreferrer\" target=\"_blank\">https://web.mit.edu/saltzer/www/publications/recguides/Simon.html</a></span>\n<span class=\"paragraph\">Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515\u2013542. <a href=\"https://doi.org/10.1007/BF00869285\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1007/BF00869285</a></span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "6e2a0c16254ec479a9783ce170013110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "76edb0cfc988a85922b5736857410892",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "27696f754c9d96d152e3715f3d4ac880",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "a3e53a7e610d86c7fd77c62f99237026",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "433e40e97db708cb15d6cc43569723a8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "c5222193c2333015b6adc8c2dfb0d7cc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "37fec13614009b93b004617da244adfc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "e5018254cebd16b02d0e3c957346de25",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "2cc2c5dd66e8522939b01d90e68ce8af",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "0a59ac715c676f8ede2e78e9f32fd192",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "9352b1a9892b352129063ec8425c45d2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "dd3a7a31698f86e1275540bf323c084f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"the-conditional-benefit-of-modularity-analyzing-secundas-contribution\">The conditional benefit of modularity: Analyzing Secunda's contribution</h2>\n<span class=\"paragraph\">[WIP]</span></span>"
           }
         }
       ],

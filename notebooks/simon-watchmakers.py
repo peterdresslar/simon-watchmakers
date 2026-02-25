@@ -31,7 +31,7 @@ def _(mo):
 
     ## Abstract
 
-    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable's applicability to real systems depends on a quantity the model does not address.
+    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable is in fact silent on the benefit of modularity for a given complex system.
 
     ## Introduction
 
@@ -901,19 +901,31 @@ def _(mo):
 
     It would be trivially easy to implement Secunda in code using a flat cost per watch, or we might conceive of a tiered system of arbitrary values. In fact, in one manner, Secunda *already exists* in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!
 
-    But, none of the actual code cost or modeled cost or whatever other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.
+    But, none of the actual code cost or modeled cost or any other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.
+    """)
+    return
 
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ---
 
-    ## WIP: Secunda, causal dominance, and meaning
+    ## The conditional benefit of modularity: Analyzing Secunda's contribution
+
+    [WIP]
+    """)
+    return
 
 
-
-    ---
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## Conclusion
 
     Herbert Simon was a titan of Twentieth Century complexity theory, and an extrordinary general contributor during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
 
-    There is, nonetheless, an insufficiency in the work: and the importance of this insufficiency is magnified by the its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
+    There is nonetheless a flaw in the work: the importance of this flaw is magnified by the its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
 
     One wonders if those authors, beyond the tricky task of catching the corrections of the math in later publications, have been entirely attuned in all cases to the importance of entropy to the system---if they have in each case thought to identify the Secundas to their Horas, and figured how to properly apply and quantify them. This seems a question that could be addressed rigorously and quantitatively through further investigation. With 10,000 papers and counting, the significance of the answer is potentially high.
     """)
