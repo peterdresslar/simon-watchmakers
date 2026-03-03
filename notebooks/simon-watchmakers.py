@@ -17,21 +17,13 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    *Welcome! If this is your first experience with a marimo notebook, please be aware that you have many options to proceed in a way that suits your curiosity level (or lack thereof) for the Python code itself. You can switch to app mode and simply press play and work with the interactive elements below; or, you could dig into edit mode to explore and even edit the code for yourself. Regardless, all of the code is deisigned to run straight through if you start with simply the run button at the bottom right corner of your screen.*
-    """)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
     # Simon's Watchmakers: Tempus, Hora, and Secunda
 
-    *[Peter Dresslar](https://github.com/peterdresslar), 2026*
+    *[Peter Dresslar](https://github.com/peterdresslar), Arizona State University, 2026*
 
     ## Abstract
 
-    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable is in fact silent on the benefit of modularity for a given complex system.
+    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable is silent on the benefit of modularity to its exemplar complex system.
 
     ## Introduction
 
@@ -909,21 +901,117 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ---
+    ## The conditional benefit of modularity: Analyzing Secunda's value
 
-    ## The conditional benefit of modularity: Analyzing Secunda's contribution
+    While we have identified that Simon's parable is missing some key aspects of the story, it is unambiguously the case that modularity can confer a benefit to an employing system. To analyze the value of this benefit we must also integrate the cost. We can
 
-    [WIP]
+    Since we already have analyzed the system in terms of probabilities, we can close the loop on how Secunda (and thus modularity) might be expected to benefit Hora's shop.
+
+    Let us first distill Secundaʻs contribution to the Hora-Secunda shop on a per-watch basis as a function of probability. Recall first that our calculations depend on a formulation of "number of tries" ($T$) computed from probability ($p$), found using $T = 1 / 1 - p$. So, either $T$ or $p$ should work, but $T$ will be a bit less unweildy.
+
+    Secundaʻs benefit could be seen in these terms as the positive difference between the steps $S$ for each shop:
+
+    $$
+    B = S_{k_{Tempus}} - S_{k_{Hora}}
+    $$
+
+    Using $k = 1000$ and $k = 10$ respectively, we can use Saltzerʻs equation from above to express this as:
+
+    $$
+    B = T \cdot \frac{T^{1000} - 1}{T - 1} - T \cdot \frac{T^{10} - 1}{T - 1}
+    $$
+
+    This simplifies to:
+
+    $$
+    B = \frac{T}{T - 1}(T^{1000} - 111 \cdot T^{10} + 110)
+    $$
+
+    As we can see, substituting $p$ in for $T$ is straightforward, if not aesthetically pleasing.
+
+    We can verify that this calculates the correct value we found above for probability p = 0.01...
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _():
+    simulated_B =  2316256.508 - 1173.603
+
+    check_p = .01
+    check_T = 1 /  (1 - check_p)
+    B = (check_T / (check_T - 1)) * (check_T ** 1000 - (111 * (check_T ** 10)) + 110)
+
+    print(f"Computed Benefit as steps S = {B}, Simulated Benefit as steps S = {simulated_B}")
+    return (B,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    It appears that our formula is correctly describing Secundaʻs benefit in terms of steps for a given probability. Now, we can identify the cost at which Secunda will provide positive value to her shop, by locating a break-even point. This should occur at
+
+    $$
+    B = 111 * C_{Secunda}
+    $$
+
+    where $C$ is expressed in steps. Substituting for B and isolating the cost term:
+
+    $$
+    C_{Secunda} = \frac{T}{111(T - 1)}(T^{1000} - 111 \cdot T^{10} + 110)
+    $$
+
+    We can once again do some calculating in Python to check what our output would be at our default probability.
     """)
     return
 
 
 @app.cell
+def _(B):
+    C = B / 111
+    print(f"Computed Breakeven in terms of steps: {C}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    We can also check the neighborhood to get a feel for how sensitive the value of Secundaʻs benefit will be.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _():
+    def get_secundas_breakeven(this_p):
+        check_T = 1 /  (1 - this_p)
+        B = (check_T / (check_T - 1)) * (check_T ** 1000 - (111 * (check_T ** 10)) + 110)
+        return B / 111
+
+    for i in range(1, 6):
+        checkpoint = 10**(-1*i)
+        b_p = get_secundas_breakeven(checkpoint)
+        print(f"Computed breakeven in terms of steps for probability {checkpoint}: {b_p}")
+
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    We can see from this calculation that for high probabilities of interruption, like 0.1, Secundaʻs contribution in unquestionably positive. For low probabilities, even one order of magnitude of difference from the parableʻs default, Secunda must work seemingly impossibly fast joining the parts in order for modularity to be an advantage at all. In fact, there is a breakpoint where Secunda cannot provide positive benefit at all.
+
+    The true moral of the watchmakerʻs parable is this: modularity is beneficial to a system *if and only if* the environment is hostile enough to punish linear development, but not so benign that modulartityʻs overhead dominates.  Making Secunda invisible and free obscures the exact parameter regime in which Simonʻs argument for modularity prevails.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     ## Conclusion
 
-    Herbert Simon was a titan of Twentieth Century complexity theory, and an extrordinary general contributor during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
+    Herbert Simon was a major controbutor to Twentieth Century complexity theory, and an extrordinary general thinker during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
 
     There is nonetheless a flaw in the work: the importance of this flaw is magnified by the its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
 
@@ -935,32 +1023,34 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ---
+
     ## Appendix
 
-    For reference, here is the complete prose of Simon watchmakers story (p. 470):
+    For reference, here is the complete prose of Simon's watchmakers story (p. 470):
 
-    ### THE EVOLUTION OF COMPLEX SYSTEMS
+    > ### THE EVOLUTION OF COMPLEX SYSTEMS
 
-    Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently—new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?
+    > Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently—new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?
 
-    The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone—say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.
+    > The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone—say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.
 
-    The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
 
-    It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is $p$. Then the probability that Tempus can complete a watch he has started without interruption is $(1-p)^{1000}$—a very small number unless $p$ is .001 or less. Each interruption will cost, on the average, the time to assemble $1/p$ parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is $(1-p)^{10}$, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]
+    > It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is $p$. Then the probability that Tempus can complete a watch he has started without interruption is $(1-p)^{1000}$—a very small number unless $p$ is .001 or less. Each interruption will cost, on the average, the time to assemble $1/p$ parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is $(1-p)^{10}$, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]
 
-    Now if $p$ is about .01—that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly—then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.
+    > Now if $p$ is about .01—that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly—then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.
 
-    We arrive at the estimate as follows:
-    1. Hora must make 111 times as many complete assemblies per watch as Tempus; but,
-    2. Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,
-    3. Tempus will complete an assembly only 44 times per million attempts $((.99)^{1000}=44 \times 10^{-6})$, while Hora will complete nine out of ten $((.99)^{10}=9\times 10^{-1})$. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: $(9\times 10^{-1})/(44 \times 10^{-6})=2\times 10^{4}$.
+    > We arrive at the estimate as follows:
+    > 1. Hora must make 111 times as many complete assemblies per watch as Tempus; but,
+    > 2. Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,
+    > 3. Tempus will complete an assembly only 44 times per million attempts $((.99)^{1000}=44 \times 10^{-6})$, while Hora will complete nine out of ten $((.99)^{10}=9\times 10^{-1})$. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: $(9\times 10^{-1})/(44 \times 10^{-6})=2\times 10^{4}$.
 
-    Multiplying these three ratios, we get:
+    > Multiplying these three ratios, we get:
 
-    $$
-    1/111\times 100/5 \times .99^{10}/.99^{1000} = 1/111 \times 20 \times 20,000 \sim 4,000
-    $$
+    > $$
+    > 1/111\times 100/5 \times .99^{10}/.99^{1000} = 1/111 \times 20 \times 20,000 \sim 4,000
+    > $$
 
     ---
 
