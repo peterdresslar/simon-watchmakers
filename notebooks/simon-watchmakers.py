@@ -992,7 +992,6 @@ def _():
         checkpoint = 10**(-1*i)
         b_p = get_secundas_breakeven(checkpoint)
         print(f"Computed breakeven in terms of steps for probability {checkpoint}: {b_p}")
-
     return
 
 
@@ -1056,13 +1055,9 @@ def _(mo):
 
     ### Notes
 
-    [Footnote 7 from the Simon passage, about which Saltzer says:  ...
+    1. There is some concern about footnote 7 from the Simon passage, about which Saltzer says:  ...
 
     > This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that "each interruption will cost only about the time to assemble five parts" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.
-
-    ]
-
-    [Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: "[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]"]
 
     ### References
 
@@ -1075,6 +1070,8 @@ def _(mo):
     Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. https://web.mit.edu/saltzer/www/publications/recguides/Simon.html
 
     Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515–542. https://doi.org/10.1007/BF00869285
+
+    <center><em>Version 0.1.0: March 3, 2026</em></center>
     """)
     return
 

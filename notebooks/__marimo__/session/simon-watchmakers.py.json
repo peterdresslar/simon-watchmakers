@@ -5,20 +5,7 @@
   },
   "cells": [
     {
-      "id": "Hbol",
-      "code_hash": "6e2a0c16254ec479a9783ce170013110",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "vblA",
+      "id": "MJUe",
       "code_hash": "fb763e38f05ddce7279c8789e4b6f5d3",
       "outputs": [
         {
@@ -31,7 +18,7 @@
       "console": []
     },
     {
-      "id": "bkHC",
+      "id": "vblA",
       "code_hash": "bf751f5e2c6b6e1e111eec090037bc66",
       "outputs": [
         {
@@ -44,7 +31,7 @@
       "console": []
     },
     {
-      "id": "lEQa",
+      "id": "bkHC",
       "code_hash": "630a8074634924ce3da561a0aa4f75ca",
       "outputs": [
         {
@@ -57,7 +44,7 @@
       "console": []
     },
     {
-      "id": "PKri",
+      "id": "lEQa",
       "code_hash": "62b9f600fae595ea1f63b76cba135514",
       "outputs": [
         {
@@ -70,40 +57,7 @@
       "console": []
     },
     {
-      "id": "Xref",
-      "code_hash": "76edb0cfc988a85922b5736857410892",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='Xref-2' random-id='eae80877-cde8-b9c5-10d1-ae9f16621784'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;Xref-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='Xref-1' random-id='d3632391-c6b5-9a33-d721-22ac70ced39f'><marimo-slider data-initial-value='100' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Update probability p. Press submit to process updates&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='1000' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "SFPL",
-      "code_hash": "27696f754c9d96d152e3715f3d4ac880",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Probability p of an interruption: 0.01\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "BYtC",
       "code_hash": "a2567a64fce083431f922c4c67e75ee3",
       "outputs": [
         {
@@ -117,26 +71,6 @@
     },
     {
       "id": "RGSE",
-      "code_hash": "a3e53a7e610d86c7fd77c62f99237026",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Hello, I am Tempus, a Python implementation of a linear watchmaker.\nHello, I am Hora, a Python implementation of a modular watchmaker.\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "Kclp",
       "code_hash": "ae2f6f68d4c1a5c7e45d7e8bb01e74fb",
       "outputs": [
         {
@@ -149,53 +83,7 @@
       "console": []
     },
     {
-      "id": "emfo",
-      "code_hash": "433e40e97db708cb15d6cc43569723a8",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Visualization data ready.\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "Hstk",
-      "code_hash": "c5222193c2333015b6adc8c2dfb0d7cc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='Hstk-0' random-id='5e972de1-9913-5441-9e16-c36f4ca93fa9'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Use this control to scrub through visualization data (Note that the notebook cells must first be run).&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='999999' data-step='1' data-steps='[]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='true'></marimo-slider></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "nWHF",
-      "code_hash": "37fec13614009b93b004617da244adfc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "\n<div style=\"font-family:'SF Mono','Fira Code','Cascadia Code',monospace;color:#eee;padding:16px 20px;\">\n\n    <div style=\"font-size:11px;color:#999;margin-bottom:12px;\">\n        Step <b>5</b> &nbsp;|&nbsp; p = 0.01\n        &nbsp;|&nbsp; Frame 1 / 1,000,000\n    </div>\n\n    <!-- HORA -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#4c78a8;margin-bottom:8px;\">\n            HORA\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                10 \u00d7 10 \u00d7 10 hierarchy &nbsp;|&nbsp; 111 assemblies/watch\n            </span>\n        </div>\n\n        <!-- Row 1: subassemblies_ready + current parts progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Subassemblies:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:2px solid #6fa8dc;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #6fa8dc;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:50.0%;height:100%;background:#6fa8dc;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                5/10</span>\n        </div>\n\n        <!-- Row 2: larger_subs_ready + current sub-assembly joining progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Larger subs:</span>\n            <div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div><div style=\"display:inline-block;width:32px;height:24px;background:#3a3a3e;border-radius:2px;border:1px solid #555;margin:1px;\"></div>\n            <span style=\"margin:0 4px;font-size:10px;color:#999;\">\u2190</span>\n            <div style=\"display:inline-block;width:120px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n\n        <!-- Row 3: assembly (watch) progress -->\n        <div style=\"margin-bottom:5px;display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Watch assembly:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:1px solid #555;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0%;height:100%;background:#555;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:35px;\">\n                0/10</span>\n        </div>\n    </div>\n\n    <!-- TEMPUS -->\n    <div style=\"margin-bottom:24px;\">\n        <div style=\"font-size:15px;font-weight:bold;color:#e45756;margin-bottom:8px;\">\n            TEMPUS\n            <span style=\"font-weight:normal;font-size:11px;color:#999;\">\n                1000 parts, one long chain\n            </span>\n        </div>\n\n        <div style=\"display:flex;align-items:center;\">\n            <span style=\"font-size:10px;color:#999;width:130px;flex-shrink:0;\">\n                Progress:</span>\n            <div style=\"display:inline-block;width:480px;height:24px;background:#3a3a3e;border-radius:3px;border:2px solid #e45756;overflow:hidden;margin:1px;vertical-align:middle;\"><div style=\"width:0.5%;height:100%;background:#e45756;border-radius:2px;\"></div></div>\n            <span style=\"font-size:10px;color:#999;margin-left:4px;min-width:55px;\">\n                5/1000</span>\n        </div>\n    </div>\n\n    <!-- WATCH OUTPUT -->\n    <div style=\"display:flex;gap:60px;padding-top:12px;border-top:1px solid #444;\">\n        <div>\n            <div style=\"font-size:12px;color:#4c78a8;margin-bottom:4px;font-weight:bold;\">\n                Hora's watches</div>\n            <span style=\"color:#555;font-size:24px;\">\u2014</span>\n        </div>\n        <div>\n            <div style=\"font-size:12px;color:#e45756;margin-bottom:4px;font-weight:bold;\">\n                Tempus's watches</div>\n            <span style=\"color:#555;font-size:24px;\">\u2014</span>\n        </div>\n    </div>\n\n    \n\n    <!-- STATUS -->\n    <div style=\"margin-top:12px;font-size:10px;color:#999;border-top:1px solid #333;padding-top:6px;\">\n        Hora: 0 interrupts, ~0 parts-equiv lost,\n        0 assemblies completed,\n        working on level 0\n        &nbsp;|&nbsp;\n        Tempus: 0 interrupts, 0 parts lost\n    </div>\n\n</div>\n"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "iLit",
       "code_hash": "dc3d14d94188e4101e9babd3b1ebdf87",
       "outputs": [
         {
@@ -208,60 +96,7 @@
       "console": []
     },
     {
-      "id": "ZHCJ",
-      "code_hash": "e5018254cebd16b02d0e3c957346de25",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='ZHCJ-2' random-id='2cbd9fc5-42bb-0369-d968-664b4fc42127'><marimo-form data-initial-value='null' data-label='null' data-element-id='&quot;ZHCJ-1&quot;' data-loading='false' data-bordered='true' data-submit-button-label='&quot;Submit&quot;' data-submit-button-disabled='false' data-clear-on-submit='false' data-show-clear-button='false' data-clear-button-label='&quot;Clear&quot;' data-should-validate='false'><marimo-ui-element object-id='ZHCJ-1' random-id='0c273f4b-ca1e-f02a-b09e-9053d46e07e2'><marimo-slider data-initial-value='0' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Using this slider will adjust the number of simulations. Very large numbers will take a long time to run.&lt;/span&gt;&lt;/span&gt;&quot;' data-start='0' data-stop='3' data-step='1' data-steps='[1000,10000,100000,1000000]' data-debounce='false' data-disabled='false' data-orientation='&quot;horizontal&quot;' data-show-value='false' data-include-input='false' data-full-width='false'></marimo-slider></marimo-ui-element></marimo-form></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ROlb",
-      "code_hash": "2cc2c5dd66e8522939b01d90e68ce8af",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Number of watches to be simulated: 10000\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
       "id": "qnkX",
-      "code_hash": "0a59ac715c676f8ede2e78e9f32fd192",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Analytical predictions (p=0.01):\n  Hora:   111 * S(10) = 1173.6 steps/watch\n  Tempus: S(1000) = 2316256.5 steps/watch\n  Ratio:  1973.7x\n\nHora: 10000 watches in 11,735,092 steps\n  Avg steps/watch:      1173.5  (expected: 1173.6)\n  Avg assemblies/watch: 111.0  (expected: 111)\n  Successful  Sim/Analytical = 0.9999\n\nTempus: 6 watches in 11,735,092 steps\n  Avg steps/watch: 1955848.7  (expected: 2316256.5)\n  Interrupts: 117,501\n  Work lost:  11,611,584 parts\n  Best progress: (not tracked, but expected ~100 parts before reset)\n\nIn 11,735,092 steps:\n  Hora:   10000 watches\n  Tempus: 6 watches\n  Ratio:  1667x\n  Expected ratio: 1974x\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "TqIu",
       "code_hash": "94b640e8a0a962e68659ed3e605e3ccd",
       "outputs": [
         {
@@ -274,7 +109,7 @@
       "console": []
     },
     {
-      "id": "Vxnm",
+      "id": "TqIu",
       "code_hash": "852a21d415861db131e3aa532fba03c9",
       "outputs": [
         {
@@ -288,19 +123,6 @@
     },
     {
       "id": "DnEU",
-      "code_hash": "9352b1a9892b352129063ec8425c45d2",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<marimo-ui-element object-id='DnEU-0' random-id='2d023e4b-2a96-c7da-b1df-b35a185d6be1'><marimo-switch data-initial-value='false' data-label='&quot;&lt;span class=&#92;&quot;markdown prose dark:prose-invert contents&#92;&quot;&gt;&lt;span class=&#92;&quot;paragraph&#92;&quot;&gt;Turn on Entropy Calculations&lt;/span&gt;&lt;/span&gt;&quot;' data-disabled='false'></marimo-switch></marimo-ui-element>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ulZA",
       "code_hash": "1fdb901733f2e4cb306b42e623716a3f",
       "outputs": [
         {
@@ -313,73 +135,33 @@
       "console": []
     },
     {
-      "id": "ecfG",
-      "code_hash": "97fde247dc52ca716203e45b0d7354d2",
+      "id": "ulZA",
+      "code_hash": "1b5adfec9338e51255e2db808a816407",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"the-conditional-benefit-of-modularity-analyzing-secundas-value\">The conditional benefit of modularity: Analyzing Secunda's value</h2>\n<span class=\"paragraph\">While we have identified that Simon's parable is missing some key aspects of the story, it is unambiguously the case that modularity can confer a benefit to an employing system. To analyze the value of this benefit we must also integrate the cost. We can </span>\n<span class=\"paragraph\">Since we already have analyzed the system in terms of probabilities, we can close the loop on how Secunda (and thus modularity) might be expected to benefit Hora's shop.</span>\n<span class=\"paragraph\">Let us first distill Secunda\u02bbs contribution to the Hora-Secunda shop on a per-watch basis as a function of probability. Recall first that our calculations depend on a formulation of \"number of tries\" (<marimo-tex class=\"arithmatex\">||(T||)</marimo-tex>) computed from probability (<marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>), found using <marimo-tex class=\"arithmatex\">||(T = 1 / 1 - p||)</marimo-tex>. So, either <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> or <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> should work, but <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> will be a bit less unweildy.</span>\n<span class=\"paragraph\">Secunda\u02bbs benefit could be seen in these terms as the positive difference between the steps <marimo-tex class=\"arithmatex\">||(S||)</marimo-tex> for each shop:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = S_{k_{Tempus}} - S_{k_{Hora}}\n||]</marimo-tex><span class=\"paragraph\">Using <marimo-tex class=\"arithmatex\">||(k = 1000||)</marimo-tex> and <marimo-tex class=\"arithmatex\">||(k = 10||)</marimo-tex> respectively, we can use Saltzer\u02bbs equation from above to express this as:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = T \\cdot \\frac{T^{1000} - 1}{T - 1} - T \\cdot \\frac{T^{10} - 1}{T - 1}\n||]</marimo-tex><span class=\"paragraph\">This simplifies to:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = \\frac{T}{T - 1}(T^{1000} - 111 \\cdot T^{10} + 110) \n||]</marimo-tex><span class=\"paragraph\">As we can see, substituting <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> in for <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> is straightforward, if not aesthetically pleasing. </span>\n<span class=\"paragraph\">We can verify that this calculates the correct value we found above for probability p = 0.01...</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"the-conditional-benefit-of-modularity-analyzing-secundas-value\">The conditional benefit of modularity: Analyzing Secunda's value</h2>\n<span class=\"paragraph\">While we have identified that Simon's parable is missing some key aspects of the story, it is unambiguously the case that modularity can confer a benefit to an employing system. To analyze the value of this benefit we must also integrate the cost. We can</span>\n<span class=\"paragraph\">Since we already have analyzed the system in terms of probabilities, we can close the loop on how Secunda (and thus modularity) might be expected to benefit Hora's shop.</span>\n<span class=\"paragraph\">Let us first distill Secunda\u02bbs contribution to the Hora-Secunda shop on a per-watch basis as a function of probability. Recall first that our calculations depend on a formulation of \"number of tries\" (<marimo-tex class=\"arithmatex\">||(T||)</marimo-tex>) computed from probability (<marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>), found using <marimo-tex class=\"arithmatex\">||(T = 1 / 1 - p||)</marimo-tex>. So, either <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> or <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> should work, but <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> will be a bit less unweildy.</span>\n<span class=\"paragraph\">Secunda\u02bbs benefit could be seen in these terms as the positive difference between the steps <marimo-tex class=\"arithmatex\">||(S||)</marimo-tex> for each shop:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = S_{k_{Tempus}} - S_{k_{Hora}}\n||]</marimo-tex><span class=\"paragraph\">Using <marimo-tex class=\"arithmatex\">||(k = 1000||)</marimo-tex> and <marimo-tex class=\"arithmatex\">||(k = 10||)</marimo-tex> respectively, we can use Saltzer\u02bbs equation from above to express this as:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = T \\cdot \\frac{T^{1000} - 1}{T - 1} - T \\cdot \\frac{T^{10} - 1}{T - 1}\n||]</marimo-tex><span class=\"paragraph\">This simplifies to:</span>\n<marimo-tex class=\"arithmatex\">||[\nB = \\frac{T}{T - 1}(T^{1000} - 111 \\cdot T^{10} + 110)\n||]</marimo-tex><span class=\"paragraph\">As we can see, substituting <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> in for <marimo-tex class=\"arithmatex\">||(T||)</marimo-tex> is straightforward, if not aesthetically pleasing.</span>\n<span class=\"paragraph\">We can verify that this calculates the correct value we found above for probability p = 0.01...</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "rZzy",
-      "code_hash": "efe0b26f1638620e9a71a4357d93beed",
+      "id": "Pvdt",
+      "code_hash": "a6d868e095fd28dc862c028a7cc8d390",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Computed Benefit as steps S = 2315082.936715123, Simulated Benefit as steps S = 2315082.905\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "FSqU",
-      "code_hash": "b65061b8f5b679111a14a0a580708f20",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">It appears that our formula is correctly describing Secunda\u02bbs benefit in terms of steps for a given probability. Now, we can identify the cost at which Secunda will provide positive value to her shop, by locating a break-even point. This should occur at</span>\n<marimo-tex class=\"arithmatex\">||[\nB = 111 * C_{Secunda}\n||]</marimo-tex><span class=\"paragraph\">where <marimo-tex class=\"arithmatex\">||(C||)</marimo-tex> is expressed in steps. Substituting for B and isolating the cost term:</span>\n<marimo-tex class=\"arithmatex\">||[\nC_{Secunda} = \\frac{T}{111(T - 1)}(T^{1000} - 111 \\cdot T^{10} + 110) \n||]</marimo-tex><span class=\"paragraph\">We can once again do some calculating in Python to check what our output would be at our default probability.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">It appears that our formula is correctly describing Secunda\u02bbs benefit in terms of steps for a given probability. Now, we can identify the cost at which Secunda will provide positive value to her shop, by locating a break-even point. This should occur at</span>\n<marimo-tex class=\"arithmatex\">||[\nB = 111 * C_{Secunda}\n||]</marimo-tex><span class=\"paragraph\">where <marimo-tex class=\"arithmatex\">||(C||)</marimo-tex> is expressed in steps. Substituting for B and isolating the cost term:</span>\n<marimo-tex class=\"arithmatex\">||[\nC_{Secunda} = \\frac{T}{111(T - 1)}(T^{1000} - 111 \\cdot T^{10} + 110)\n||]</marimo-tex><span class=\"paragraph\">We can once again do some calculating in Python to check what our output would be at our default probability.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "JxqL",
-      "code_hash": "56a6bfa14aecc9d714b66e60c9756b90",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Computed Breakeven in terms of steps: 20856.603033469575\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "TFaq",
+      "id": "aLJB",
       "code_hash": "df5eeb8131203f111d517937a8b980ad",
       "outputs": [
         {
@@ -392,27 +174,7 @@
       "console": []
     },
     {
-      "id": "nTWN",
-      "code_hash": "30d53fe860a265b76d94549e16e40326",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Computed breakeven in terms of steps for probability 0.1: 5.1542749502461266e+44\nComputed breakeven in terms of steps for probability 0.01: 20856.603033469575\nComputed breakeven in terms of steps for probability 0.001: 5.437051503199579\nComputed breakeven in terms of steps for probability 0.0001: -0.5301468572503911\nComputed breakeven in terms of steps for probability 1e-05: -0.9462999436081558\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "zoQG",
+      "id": "xXTn",
       "code_hash": "9a223d33678384accdc8442e504c8f53",
       "outputs": [
         {
@@ -425,7 +187,7 @@
       "console": []
     },
     {
-      "id": "Pvdt",
+      "id": "AjVT",
       "code_hash": "785fae9b9c0e0e73aafc16ad00518c4f",
       "outputs": [
         {
@@ -438,16 +200,107 @@
       "console": []
     },
     {
-      "id": "ZBYS",
-      "code_hash": "e2b3ff281bdc3d018dbe3d8f71776143",
+      "id": "pHFh",
+      "code_hash": "4e38a47b9cad3760cc631f20ad442da0",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"appendix\">Appendix</h2>\n<span class=\"paragraph\">For reference, here is the complete prose of Simon's watchmakers story (p. 470):</span>\n<blockquote>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:\n1. Hora must make 111 times as many complete assemblies per watch as Tempus; but,\n2. Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,\n3. Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</span>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex></blockquote>\n<hr />\n<h3 id=\"notes\">Notes</h3>\n<span class=\"paragraph\">[Footnote 7 from the Simon passage, about which Saltzer says:  ...</span>\n<blockquote>\n<span class=\"paragraph\">This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.</span>\n</blockquote>\n<span class=\"paragraph\">]</span>\n<span class=\"paragraph\">[Here, we should also reproduce another comment from Saltzer, in which he corrects Simon's ratio and acknowledges a colleague: \"[W]e conclude that Hora can produce 1973 times as many watches per unit time as can Tempus. [Thanks to Chandra Boyapati for helping to find the summation error.]\"]</span>\n<h3 id=\"references\">References</h3>\n<span class=\"paragraph\">Kauffman, S., &amp; Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. <a href=\"https://doi.org/10.1098/rstb.2024.0283\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1098/rstb.2024.0283</a></span>\n<span class=\"paragraph\">Rivelli, L. (2025). Modularity in biological thought: Sketch of a unifying theoretical framework. BioSystems, 250, 105430. <a href=\"https://doi.org/10.1016/j.biosystems.2025.105430\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1016/j.biosystems.2025.105430</a></span>\n<span class=\"paragraph\">Simon, H. A. (1962). The architecture of complexity. Proceedings of the American Philosophical Society, 106(6), 467\u2013482. <a href=\"https://www.jstor.org/stable/985254\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.jstor.org/stable/985254</a></span>\n<span class=\"paragraph\">Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. <a href=\"https://web.mit.edu/saltzer/www/publications/recguides/Simon.html\" rel=\"noopener noreferrer\" target=\"_blank\">https://web.mit.edu/saltzer/www/publications/recguides/Simon.html</a></span>\n<span class=\"paragraph\">Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515\u2013542. <a href=\"https://doi.org/10.1007/BF00869285\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1007/BF00869285</a></span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"appendix\">Appendix</h2>\n<span class=\"paragraph\">For reference, here is the complete prose of Simon's watchmakers story (p. 470):</span>\n<blockquote>\n<h3 id=\"the-evolution-of-complex-systems\">THE EVOLUTION OF COMPLEX SYSTEMS</h3>\n<span class=\"paragraph\">Let me introduce the topic of evolution with a parable. There once were two watchmakers, named Hora and Tempus, who manufactured very fine watches. Both of them were highly regarded, and the phones in their workshops rang frequently\u2014new customers were constantly calling them. However, Hora prospered, while Tempus became poorer and poorer and finally lost his shop. What was the reason?</span>\n<span class=\"paragraph\">The watches the men made consisted of about 1,000 parts each. Tempus had so constructed his that if he had one partly assembled and had to put it down to answer the phone\u2014say it immediately fell to pieces and had to be reassembled from the elements. The better the customers liked his watches, the more they phoned him, the more difficult it became for him to find enough uninterrupted time to finish a watch.</span>\n<span class=\"paragraph\">The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Ten of these subassemblies, again, could be put together into a larger subassembly; and a system of ten of the latter subassemblies constituted the whole watch. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.</span>\n<span class=\"paragraph\">It is rather easy to make a quantitative analysis of the relative difficulty of the tasks of Tempus and Hora: Suppose the probability that an interruption will occur while a part is being added to an incomplete assembly is <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex>. Then the probability that Tempus can complete a watch he has started without interruption is <marimo-tex class=\"arithmatex\">||((1-p)^{1000}||)</marimo-tex>\u2014a very small number unless <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is .001 or less. Each interruption will cost, on the average, the time to assemble <marimo-tex class=\"arithmatex\">||(1/p||)</marimo-tex> parts (the expected number assembled before interruption). On the other hand, Hora has to complete one hundred eleven sub-assemblies of ten parts each. The probability that he will not be interrupted while completing any one of these is <marimo-tex class=\"arithmatex\">||((1-p)^{10}||)</marimo-tex>, and each interruption will cost only about the time required to assemble five parts.[^Simon's footnote: 7]</span>\n<span class=\"paragraph\">Now if <marimo-tex class=\"arithmatex\">||(p||)</marimo-tex> is about .01\u2014that is, there is one chance in a hundred that either watchmaker will be interrupted while adding any one part to an assembly\u2014then a straightforward calculation shows that it will take Tempus, on the average, about four thousand times as long to assemble a watch as Hora.</span>\n<span class=\"paragraph\">We arrive at the estimate as follows:\n1. Hora must make 111 times as many complete assemblies per watch as Tempus; but,\n2. Tempus will lose on the average 20 times as much work for each interrupted assembly as Hora [100 parts, on the average, as against 5]; and,\n3. Tempus will complete an assembly only 44 times per million attempts <marimo-tex class=\"arithmatex\">||(((.99)^{1000}=44 \\times 10^{-6})||)</marimo-tex>, while Hora will complete nine out of ten <marimo-tex class=\"arithmatex\">||(((.99)^{10}=9\\times 10^{-1})||)</marimo-tex>. Hence Tempus will have to make 20,000 as many attempts per completed assembly as Hora: <marimo-tex class=\"arithmatex\">||((9\\times 10^{-1})/(44 \\times 10^{-6})=2\\times 10^{4}||)</marimo-tex>.</span>\n<span class=\"paragraph\">Multiplying these three ratios, we get:</span>\n<marimo-tex class=\"arithmatex\">||[\n1/111\\times 100/5 \\times .99^{10}/.99^{1000} = 1/111 \\times 20 \\times 20,000 \\sim 4,000\n||]</marimo-tex></blockquote>\n<hr />\n<h3 id=\"notes\">Notes</h3>\n<ol>\n<li>There is some concern about footnote 7 from the Simon passage, about which Saltzer says:  ...</li>\n</ol>\n<blockquote>\n<span class=\"paragraph\">This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that \"each interruption will cost only about the time to assemble five parts\" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.</span>\n</blockquote>\n<h3 id=\"references\">References</h3>\n<span class=\"paragraph\">Kauffman, S., &amp; Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. <a href=\"https://doi.org/10.1098/rstb.2024.0283\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1098/rstb.2024.0283</a></span>\n<span class=\"paragraph\">Rivelli, L. (2025). Modularity in biological thought: Sketch of a unifying theoretical framework. BioSystems, 250, 105430. <a href=\"https://doi.org/10.1016/j.biosystems.2025.105430\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1016/j.biosystems.2025.105430</a></span>\n<span class=\"paragraph\">Simon, H. A. (1962). The architecture of complexity. Proceedings of the American Philosophical Society, 106(6), 467\u2013482. <a href=\"https://www.jstor.org/stable/985254\" rel=\"noopener noreferrer\" target=\"_blank\">https://www.jstor.org/stable/985254</a></span>\n<span class=\"paragraph\">Saltzer, J. H. (1996). 6.033 discussion suggestions (Simon complexity paper). MIT. <a href=\"https://web.mit.edu/saltzer/www/publications/recguides/Simon.html\" rel=\"noopener noreferrer\" target=\"_blank\">https://web.mit.edu/saltzer/www/publications/recguides/Simon.html</a></span>\n<span class=\"paragraph\">Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515\u2013542. <a href=\"https://doi.org/10.1007/BF00869285\" rel=\"noopener noreferrer\" target=\"_blank\">https://doi.org/10.1007/BF00869285</a></span>\n<center><em>Version 0.1.0: March 3, 2026</em></center></span>"
           }
         }
       ],
+      "console": []
+    },
+    {
+      "id": "Hbol",
+      "code_hash": "6e2a0c16254ec479a9783ce170013110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "76edb0cfc988a85922b5736857410892",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "27696f754c9d96d152e3715f3d4ac880",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "a3e53a7e610d86c7fd77c62f99237026",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "433e40e97db708cb15d6cc43569723a8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "c5222193c2333015b6adc8c2dfb0d7cc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "37fec13614009b93b004617da244adfc",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "e5018254cebd16b02d0e3c957346de25",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "2cc2c5dd66e8522939b01d90e68ce8af",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "0a59ac715c676f8ede2e78e9f32fd192",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "9352b1a9892b352129063ec8425c45d2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "efe0b26f1638620e9a71a4357d93beed",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "56a6bfa14aecc9d714b66e60c9756b90",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "d900eb21952ec042927bdcdc4843aa27",
+      "outputs": [],
       "console": []
     }
   ]
