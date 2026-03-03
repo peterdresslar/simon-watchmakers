@@ -27,7 +27,7 @@ def _(mo):
 
     ## Introduction
 
-    Herbert Simon's [*The Architecture of Complexity*](https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31) (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers—Hora and Tempus—along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances complexity theory and methods lend Simon's work particular resonance.
+    Herbert Simon's [*The Architecture of Complexity*](https://link.springer.com/chapter/10.1007/978-1-4899-0718-9_31) (1962) is a foundational work for complexity science. The story introduces a parable of the two watchmakers—Hora and Tempus—along the way to presenting one of the most-cited arguments for why complex systems tend toward hierarchical, modular organization. While the lecture influenced theorists for every decade following its publication, current advances in complexity theory and methods lend Simon's work particular resonance.
 
     Simon's parable begins (with some editing):
 
@@ -155,7 +155,7 @@ def _(np):
             #
             # committed_bits:    permanently banked, immune to interruption.
             #                    increases by K*log_2(T) each time any assembly of K steps completes. 
-            #                    Entirely atributable to "Secunda" (see prose)
+            #                    Entirely attributable to "Secunda" (see prose)
             #
             # provisional_bits:  current progress that would be lost on interruption.
             #                    equals (the return of) _get_progress() · log_2(T) at the active level.
@@ -790,7 +790,7 @@ def _(mo):
 
     Despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone. In fact, a quick inquiry to modern AI chatbots about Simon's watchmakers will often get a response with the same incorrect result.
 
-    Regardless of the uncomfortable situation of an incorrect value being cited in (likely) hundreds of referreed articles for the better part of a century, the model appears to generally work to reinforce the concepts for which it was designed. If our system is only 2000 times as efficient, rather than 4000, what does that matter? Better is better, and 2000x is way better.
+    Regardless of the uncomfortable situation of an incorrect value being cited in (likely) hundreds of refereed articles for the better part of a century, the model appears to generally work to reinforce the concepts for which it was designed. If our system is only 2000 times as efficient, rather than 4000, what does that matter? Better is better, and 2000x is way better.
 
     It turns out, however, that this is not the only problem with the parable of the watchmakers. Math might be the least of the worries. A more fundamental issue emerges when we ask: where does Hora's advantage actually come from? To investigate this, we turn to the subject of entropy.
     """)
@@ -903,11 +903,11 @@ def _(mo):
     mo.md(r"""
     ## The conditional benefit of modularity: Analyzing Secunda's value
 
-    While we have identified that Simon's parable is missing some key aspects of the story, it is unambiguously the case that modularity can confer a benefit to an employing system. To analyze the value of this benefit we must also integrate the cost. We can
+    While we have identified that Simon's parable is missing some key aspects of the story, it is unambiguously the case that modularity can confer a benefit to an employing system. To analyze the value of this benefit we must also integrate the cost.
 
     Since we already have analyzed the system in terms of probabilities, we can close the loop on how Secunda (and thus modularity) might be expected to benefit Hora's shop.
 
-    Let us first distill Secundaʻs contribution to the Hora-Secunda shop on a per-watch basis as a function of probability. Recall first that our calculations depend on a formulation of "number of tries" ($T$) computed from probability ($p$), found using $T = 1 / 1 - p$. So, either $T$ or $p$ should work, but $T$ will be a bit less unweildy.
+    Let us first distill Secundaʻs contribution to the Hora-Secunda shop on a per-watch basis as a function of probability. Recall first that our calculations depend on a formulation of "number of tries" ($T$) computed from probability ($p$), found using $T = 1 / 1 - p$. So, either $T$ or $p$ should work, but $T$ will be a bit less unwieldy.
 
     Secundaʻs benefit could be seen in these terms as the positive difference between the steps $S$ for each shop:
 
@@ -1012,7 +1012,7 @@ def _(mo):
 
     Herbert Simon was a major contributor to twentieth century complexity theory, and an extraordinary general thinker during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
 
-    There is nonetheless a flaw in the work, and the importance of this flaw is magnified by its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
+    There is nonetheless a flaw in the work, and the importance of this flaw is magnified by its astonishingly wide adoption. The works citing *Architecture* span myriad avenues of science, including many that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
 
     In many realistic cases Secunda can easily help her father through modular construction, consider that in real-world analogies, the costs of modularity can be massive. Consider, for instance, multiple-level management in a large company, or the division of a single monolithic software project into small, independent services. Even the idea of modularity in consumer goods can typically be far more expensive: for example a modular, portable bicycle and its simple unitary counterpart. It is clear when considering the real-world manifestations that modularity has its limits in improving the order of things.
 
