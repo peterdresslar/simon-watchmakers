@@ -633,7 +633,7 @@ def _(mo):
 
     However, that success means that the same headline numbers have been repeatedly mis-reported over the years.
 
-    In his analysis, Simon seeks to answer the question: through his modular architecture, how many more watches can Hora complete than Tempus, given a specific probability (arbitrarily, $0.01$) of interruption. The entire prose including the calculations are below. Simon arrives at a specific formula concluding in an approximate value of 4,000. While the number is indeed presented as an approximation, we might observe that in the final line of his analysis:
+    In his analysis, Simon seeks to answer the question: through his modular architecture, how many more watches can Hora complete than Tempus, given a specific probability (arbitrarily, $0.01$) of interruption. The entire prose including the calculations are below. Simon arrives at a specific formula concluding in an approximate value of 4,000. While the number is indeed presented as an approximation, it is worth noting that in the final line of his analysis:
 
     $$
     1/111\times 100/5 \times .99^{10}/.99^{1000} = 1/111 \times 20 \times 20,000 \sim 4,000
@@ -786,7 +786,7 @@ def _(
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    Note that the outcomes will assuredly approach the target ratio of 1974 when the simulation is run with more cycles, as can be adjusted, above. The cost of this is a longer run-time. Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though we might note that there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when $p = .01$.
+    Note that the outcomes will assuredly approach the target ratio of 1974 when the simulation is run with more cycles, as can be adjusted, above. The cost of this is a longer run-time. Running the simulation confirms that Turney's calculation and Saltzer's approach are both valid, though there is a rounding error at the integer level in the Saltzer. Hora makes 1974, not 1973, watches for every one of Tempus' when $p = .01$.
 
     Despite the fact that corrections have been available for more than a quarter century, Simon's original approximate ratio of 4,000 appears repeatedly in modern literature: (Rivelli 2025) is a recent example, but hardly alone. In fact, a quick inquiry to modern AI chatbots about Simon's watchmakers will often get a response with the same incorrect result.
 
@@ -885,15 +885,15 @@ def _(mo):
 
     Let us expand our story to explicitly account for Hora's competitive advantage. To do this, we introduce Secunda. For example:
 
-    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda—who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole wathc a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda—who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole watch a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
     >
     > That is to say, he and his daughter did.
 
     Now our story rings a bit more true, but it is still just a story, or an analogy. What can we know about Secunda, and how can she inform us about modularity in complex systems?
 
-    It would be trivially easy to implement Secunda in code using a flat cost per watch, or we might conceive of a tiered system of arbitrary values. In fact, in one manner, Secunda *already exists* in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!
+    It would be trivially easy to implement Secunda in code using a flat cost per watch, or even a tiered system of arbitrary values. In fact, in one manner, Secunda *already exists* in the code; after all, we necessarily perform some processing to stack the subassemblies into watches. Simon may have conceived a free conversion of components to whole in theory; such a thing does not exist as a Python library!
 
-    But, none of the actual code cost or modeled cost or any other approach we might think of will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.
+    But, none of the actual code cost or modeled cost or any other approach will be particularly illuminating, as it turns out. After all, we can do sums and differences in our heads, and we can immediately see that the real value of the modularity of the system cannot be calculated without knowing Secunda's cost. As an analogy applied to other systems, Secunda will have any number of implementations and embodiments. Far from being a footnote, she is in fact the main performer of Simon's parable.
     """)
     return
 
@@ -1000,7 +1000,7 @@ def _(mo):
     mo.md(r"""
     We can see from this calculation that for high probabilities of interruption, like 0.1, Secundaʻs contribution in unquestionably positive. For low probabilities, even one order of magnitude of difference from the parableʻs default, Secunda must work seemingly impossibly fast joining the parts in order for modularity to be an advantage at all. In fact, there is a breakpoint where Secunda cannot provide positive benefit at all.
 
-    The true moral of the watchmakerʻs parable is this: modularity is beneficial to a system *if and only if* the environment is hostile enough to punish linear development, but not so benign that modulartityʻs overhead dominates.  Making Secunda invisible and free obscures the exact parameter regime in which Simonʻs argument for modularity prevails.
+    The true moral of the watchmakerʻs parable is this: modularity is beneficial to a system *if and only if* the environment is hostile enough to punish linear development, but not so benign that modularityʻs overhead dominates.  Making Secunda invisible and free obscures the exact parameter regime in which Simonʻs argument for modularity prevails.
     """)
     return
 
@@ -1010,11 +1010,13 @@ def _(mo):
     mo.md(r"""
     ## Conclusion
 
-    Herbert Simon was a major controbutor to Twentieth Century complexity theory, and an extrordinary general thinker during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
+    Herbert Simon was a major contributor to twentieth century complexity theory, and an extraordinary general thinker during a singular time in the history of science. He did not publish without controversy, but many of his controversies have settled, over time, in his seeming general favor. The core principle of modular design and its broad applicability have been so durable as to seem in many ways more relevant to this next century than the one in which they were authored.
 
-    There is nonetheless a flaw in the work: the importance of this flaw is magnified by the its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
+    There is nonetheless a flaw in the work, and the importance of this flaw is magnified by its astonishingly wide adoption. The works citing *Architecure* span myriad avenues of science, including many that that investigate human social systems, themselves far more closely attuned to cottage industries than the biological examples presented in the paper.
 
-    One wonders if those authors, beyond the tricky task of catching the corrections of the math in later publications, have been entirely attuned in all cases to the importance of entropy to the system---if they have in each case thought to identify the Secundas to their Horas, and figured how to properly apply and quantify them. This seems a question that could be addressed rigorously and quantitatively through further investigation. With 10,000 papers and counting, the significance of the answer is potentially high.
+    In many realistic cases Secunda can easily help her father through modular construction, consider that in real-world analogies, the costs of modularity can be massive. Consider, for instance, multiple-level management in a large company, or the division of a single monolithic software project into small, independent services. Even the idea of modularity in consumer goods can typically be far more expensive: for example a modular, portable bicycle and its simple unitary counterpart. It is clear when considering the real-world manifestations that modularity has its limits in improving the order of things.
+
+    One wonders if the authors behind the thousands of citations have been aware of this. There is the tricky task of catching the corrections to *Architecture*ʻs math from some obscure later publications, the most accurate of which is simply a web page. And then, in each citing application, there would be the need to rigorously evaluate the system in question to identify the modular ratchet and its cost. At 10,000 citations and climbing, it seems likely that the number of mis-applications of Simonʻs watchmakers would be worth further investigation.
     """)
     return
 
@@ -1071,7 +1073,7 @@ def _(mo):
 
     Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515–542. https://doi.org/10.1007/BF00869285
 
-    <center><em>Version 0.1.0: March 3, 2026</em></center>
+    <center><em>Version 0.1.1: March 3, 2026</em></center>
     """)
     return
 
