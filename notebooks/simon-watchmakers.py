@@ -23,7 +23,7 @@ def _(mo):
 
     ## Abstract
 
-    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an unacknowledged agent—here called Secunda—who performs instantaneous, free, uninterruptible work at every modular ratchet point, converting fragile progress into permanent structure. The number 111, which Simon gives for Hora's required subassemblies, is itself evidence: if modular joining were truly zero-cost, only 100 assembly events would occur, with higher levels completing by automatic cascade. Since Hora's entire advantage over Tempus is attributable to these ratchet events, the parable is silent on the benefit of modularity to its exemplar complex system.
+    Herbert Simon's parable of the watchmakers Hora and Tempus, introduced in The Architecture of Complexity (1962), is one of the most cited arguments for why complex systems tend toward hierarchical, modular organization. Simon's approximate ratio of 4,000x efficiency for modular over monolithic assembly has been widely repeated; however, corrections by Turney (1989) and Saltzer (1996) place it closer to 1,974x, and these corrections appear not to have been broadly absorbed. This notebook presents a computational re-examination of the parable using faithful Python simulations validated against the corrected analytical predictions. Applying Shannon entropy to the simulation, we track the information committed at each assembly event, distinguishing between provisional progress (vulnerable to interruption) and committed bits (permanently banked). This analysis surfaces a more fundamental issue: Simon's model requires an agent that it fails entirely to acknowledge. The number 111, which Simon gives for Hora's required subassemblies, evidences this: if modular joining were truly zero-cost, higher levels would complete through a cascade, implying exactly 100 transition events. Here, we extend the parable to introduce Secunda, who performs instantaneous, free, and indelible work at every modular ratchet point. We explore the conditions under which Secunda can provide Hora's industry with a competitive advantage over the linear development of Tempus. Since Hora's entire advantage over Tempus is attributable to Secunda, we observe that the parable — as written and as cited — is silent on the true benefit of modularity.
 
     ## Introduction
 
@@ -63,9 +63,9 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Fundamental control
+    ## Interruption probability
 
-    The central variable of the narrative is the probability, $p$, that the watchmakers will be interrupted on any given step in assembly. It can be adjusted with the slider below: the default of $0.01$ is taken from the story.
+    The central variable of the narrative is the probability, $p$, that the watchmakers will be interrupted on any given step in assembly. It can be adjusted with the slider below: the default of $0.01$ is taken from the story. This interface will adjust the outputs for both the visualization and simulation sections, below.
     """)
     return
 
@@ -90,9 +90,9 @@ def _(form):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Core Classes
+    ## Core classes
 
-    These are the implementing classes for both watchmakers.
+    These are the implementing classes (in the Python language) for both watchmakers. Expand the code section below to review the fundamental logic in detail.
     """)
     return
 
@@ -218,7 +218,7 @@ def _(np):
                             self.currently_working_on = 1
 
                     elif level == 1:
-                        # Larger assembly complete, consume subassemb
+                        # Larger assembly complete, consume subassembly
                         self.subassemblies_ready = 0
                         self.larger_subs_ready += 1
                         if self.larger_subs_ready >= K:
@@ -322,7 +322,7 @@ def _(mo):
     mo.md(r"""
     ## Visualization
 
-    Here we have a *post facto* visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to "scrub through" those data. Notice that Tempus takes so long to create one watch that in some randomized data generations, he fails to complete a single one.
+    Here we have a *post facto* visualization, in that the data are run in advance, and then the user is invited to uses the frame slider to "scrub through" those data. Notice that Tempus takes so long to create one watch that, with some randomized data generations, he fails to complete a single one.
     """)
     return
 
@@ -641,7 +641,7 @@ def _(mo):
 
     it could be the equals sign that has led so many people over the years to take the number as a published certainty. It is instead off by a factor of two.
 
-    ### Helpful Analyses
+    ### Published analyses
 
     With so many citations of the text, a complete investigation into the history of mathematical adjustments to the watchmakers math would be far beyond the scope of this work. Here, we can cite to a few examples.
 
@@ -800,11 +800,9 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Watchmakers and Entropy
+    ## Watchmakers and entropy
 
-    Implementing Hora as a Python class turns out to make one particular issue very clear: when Hora is assembling his parts he is vulnerable, just as is Tempus, to an interruption: yet, when he is converting his subassemblies into larger components---say, by gluing them---he is notably immune. This is such unusual arrangement in causal nature that modeling around it takes extra code to make it work.
-
-    Can we measure what is happening when Hora "banks" a "glued" module for free? In fact, Simon himself recognizes both the problem and its signature in the paper: entropy. He addresses it in a section applying modularity to biological systems.
+    Can we measure what is happening when Hora "banks" a "glued" module for free? In fact, Simon himself recognizes both this question and the signature of the problem that it entails in his footnotes: entropy. He addresses it in a section applying modularity to biological systems.
 
     > "[T]he evolution of complex systems from simple elements implies nothing, one way or the other, about the change in entropy of the entire system... The net inflow of free energy has to be supplied from the sun or some other source if the second law of thermodynamics is not to be violated.... All estimates indicate that the amount of entropy, measured in physical units, involved in the formation of a one-celled biological organism is trivially small---about $10^{-11}$ cal/degree."
 
@@ -885,7 +883,7 @@ def _(mo):
 
     Let us expand our story to explicitly account for Hora's competitive advantage. To do this, we introduce Secunda. For example:
 
-    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda—who worked quickly enough in the joining so as to never slow down the overall progress; who worked for free; and who never deigned to answer the phone while she worked. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole watch a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
+    > The watches that Hora made were no less complex than those of Tempus. But he had designed them so that he could put together subassemblies of about ten elements each. Each of these was joined by his daughter Secunda—who worked quickly enough in the joining so as to never slow down her father's progress; who worked for free; and whose work, once set down, was invulnerable to Hora's frequent gabbing on the phone. Ten of these subassemblies, again, could be put together into a larger subassembly, again by Secunda; who also made quick work of making a whole watch a system of ten of the latter subassemblies. Hence, when Hora had to put down a partly assembled watch in order to answer the phone, he lost only a small part of his work, and he assembled his watches in only a fraction of the man-hours it took Tempus.
     >
     > That is to say, he and his daughter did.
 
@@ -936,11 +934,13 @@ def _(mo):
 
 @app.cell(hide_code=True)
 def _():
-    simulated_B =  2316256.508 - 1173.603
+    tempus_expected_default = 2316256.510359  # we hard-code these here to avoid a dependency on the sim cell
+    hora_expected_default = 1173.573644
+    simulated_B =  tempus_expected_default - hora_expected_default
 
-    check_p = .01
-    check_T = 1 /  (1 - check_p)
-    B = (check_T / (check_T - 1)) * (check_T ** 1000 - (111 * (check_T ** 10)) + 110)
+    default_p = .01
+    default_T = 1 /  (1 - default_p)
+    B = (default_T / (default_T - 1)) * (default_T ** 1000 - (111 * (default_T ** 10)) + 110)
 
     print(f"Computed Benefit as steps S = {B}, Simulated Benefit as steps S = {simulated_B}")
     return (B,)
@@ -966,7 +966,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(B):
     C = B / 111
     print(f"Computed Breakeven in terms of steps: {C}")
@@ -1061,6 +1061,8 @@ def _(mo):
 
     > This is a good approximation for Hora's case, and it may be that Simon tried to explain it but the journal editors blew it. The (correct) phrase regarding Hora that "each interruption will cost only about the time to assemble five parts" has a footnote, but the footnote that appears at the bottom of the column has nothing whatever to do with the subject at hand. This is probably an editing or typesetting/proofreading goof. But because this ratio is near the heart of the calculation mistake, the editing error compounds the situation and has led several people to mistakenly believe that this ratio was calculated incorrectly. It isn't that the ratio was calculated wrong, it is the wrong ratio to calculate. Simon should have calculated for the second ratio the expected number of steps lost per assembly, rather than steps lost per interruption.
 
+    2. The parable could be read to say that the higher-level steps of joining sub-assemblies (which we have assigned to Secunda) are immune to interruption. However, Simon's math explicitly subjects all 111 assemblies to the same $(1-p)^{10}$ success rate, meaning the labor of joining them is indeed interruptible. Our Python simulation mirrors this. We might observe that, in reality, the probability of an interruption for Secunda's joining step seems likely to be at least somewhat independent of the probability of an interruption to Hora. We have passed over this complication for the sake of simplicity, but such a distinction could have profound consequences to real-world modular systems design.
+
     ### References
 
     Kauffman, S., & Roli, A. (2025). Is the emergence of life and of agency expected? Philosophical Transactions of the Royal Society B: Biological Sciences, 380(1936), 20240283. https://doi.org/10.1098/rstb.2024.0283
@@ -1073,7 +1075,7 @@ def _(mo):
 
     Turney, P. (1989). The architecture of complexity: A new blueprint. Synthese, 79(3), 515–542. https://doi.org/10.1007/BF00869285
 
-    <center><em>Version 0.1.1: March 3, 2026</em></center>
+    <center><em>Version 1.0.0: March 8, 2026</em></center>
     """)
     return
 

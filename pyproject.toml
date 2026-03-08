@@ -1,9 +1,13 @@
 [project]
-name = "my-marimo-app"
-version = "0.1.0"
-description = "Add your description here"
+name = "simon-watchmakers"
+version = "1.0.0"
+description = "A computational re-examination of Simon's watchmakers parable from The Architecture of Complexity (1962)"
 readme = "README.md"
 requires-python = ">=3.13"
+license = "CC-BY-4.0"
+authors = [
+    { name = "Peter Dresslar", email = "peterdresslar@gmail.com" },
+]
 dependencies = [
     "altair>=6.0.0",
     "marimo",
